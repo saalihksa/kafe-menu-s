@@ -1,26 +1,199 @@
+/* Font Awesome İkonları */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #d6cab1;
+  --foreground: #3a3a3a;
+  --primary: #4a4a4a;
+  --primary-dark: #333333;
+  --accent: #b8a88a;
+  --accent-dark: #9a8a6c;
+  --accent-light: #e7e1d4;
+  --text-muted: #6e6e6e;
+  --border: #e5ded3;
+  --card-bg: #e7e1d4;
+  --section-bg: #d6cab1;
+  --section-alt: #e7e1d4;
+  --gradient-bg: linear-gradient(120deg, #d6cab1, #e7e1d4, #d6cab1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-card-bg: var(--card-bg);
+  --color-section-bg: var(--section-bg);
+  --color-section-alt: var(--section-alt);
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-playfair);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100%;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100vw;
+  position: relative;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode'u iptal ediyoruz, her zaman aynı bej tonları görünecek */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #3a3a3a;
+    --background: #d6cab1;
+    --primary: #4a4a4a;
+    --primary-dark: #333333;
+    --accent: #b8a88a;
+    --accent-dark: #9a8a6c;
+    --accent-light: #e7e1d4;
+    --text-muted: #6e6e6e;
+    --section-bg: #d6cab1;
+    --section-alt: #e7e1d4;
+    --card-bg: #e7e1d4;
+    --border: #e5ded3;
+    --gradient-bg: linear-gradient(120deg, #d6cab1, #e7e1d4, #d6cab1);
+  }
+}
+
+@layer components {
+  .menu-card-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+  }
+  
+  .menu-card-hover-shadow {
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .price-badge {
+    background: linear-gradient(135deg, #8a6e57 0%, #6b563f 100%);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+  
+  .menu-price {
+    @apply font-semibold text-transparent bg-clip-text;
+    background-image: linear-gradient(to right, #b8a88a, #4a4a4a);
+  }
+  
+  .badge-popular {
+    @apply bg-gradient-to-r from-[#b8a88a] to-[#4a4a4a] text-white;
+  }
+  
+  .badge-vegetarian {
+    @apply bg-gradient-to-r from-[#b8a88a] to-[#4a4a4a] text-white;
+  }
+  
+  .badge-vegan {
+    @apply bg-gradient-to-r from-[#b8a88a] to-[#4a4a4a] text-white;
+  }
+  
+  .badge-glutenfree {
+    @apply bg-gradient-to-r from-[#b8a88a] to-[#4a4a4a] text-white;
+  }
+}
+
+/* Genel Animation Stilleri */
+.image-zoom-container {
+  overflow: hidden;
+}
+
+.image-zoom-container img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-zoom-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Gelişmiş Tipografi */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+}
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+/* Mobil Grid İyileştirmeleri */
+@media (max-width: 639px) {
+  .grid-cols-2 {
+    gap: 10px;
+  }
+  
+  .flex-wrap {
+    gap: 4px;
+  }
+  
+  /* Mobil cihazlarda geri butonunu daha küçük ve çekici yapmak için */
+  .fixed.top-20.left-4 {
+    top: 4.5rem;
+    left: 0.75rem;
+  }
+  
+  /* Mobil kartlar için ek optimizasyonlar */
+  .menu-card-shadow {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  }
+  
+  /* Mobil kaydırma iyileştirmeleri */
+  html, body {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 80px; /* Navbar yüksekliğine göre ayarlanmış */
+    overscroll-behavior-y: contain;
+  }
+
+  #menu-kategorilerimiz {
+    scroll-margin-top: 80px;
+    scroll-snap-margin-top: 80px; /* Eski Safari için */
+  }
+}
+
+/* Global scroll davranışı */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+/* Video container için ek stiller */
+.w-screen {
+  width: 100vw;
+  max-width: 100vw;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+/* Mobil için menü hedefini belirgin kılalım */
+#menu-kategorilerimiz {
+  scroll-margin-top: 80px;
 }
