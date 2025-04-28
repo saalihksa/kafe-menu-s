@@ -14,7 +14,13 @@ import Image from 'next/image';
 // Tüm dinamik parametrelerin oluşturulmasına izin vermek için
 export const dynamic = 'force-dynamic';
 
-export default function CategoryPage({ params }: { params: { slug: string } }) {
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export default function CategoryPage({ params }: Props) {
   const slug = params.slug; // Slug'ı bir değişkene alalım
   
   // useEffect ile sayfa yüklendiğinde kontrol yapalım
