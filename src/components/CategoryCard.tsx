@@ -11,12 +11,12 @@ interface CategoryCardProps {
 }
 
 export default function CategoryCard({ category }: CategoryCardProps) {
-  const { title, image, slug } = category;
+  const { id, title, image, slug } = category;
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   
   return (
     <Link href={`/kategori/${slug}`} prefetch={true}>
-      <motion.div
+    <motion.div
         className="relative w-full h-52 md:h-64 rounded-xl overflow-hidden group cursor-pointer bg-accent-light"
         whileHover={{ y: -5 }}
         transition={{ duration: 0.2 }}
@@ -26,10 +26,10 @@ export default function CategoryCard({ category }: CategoryCardProps) {
         {!isImageLoaded && (
           <div className="absolute inset-0 bg-gray-300 animate-pulse"></div>
         )}
-        <Image
-          src={image}
-          alt={title}
-          fill
+          <Image
+            src={image}
+            alt={title}
+            fill
           sizes="(max-width: 768px) 100vw, 33vw"
           className={`object-cover object-center group-hover:scale-105 transition-transform duration-500 ${
             isImageLoaded ? 'opacity-100' : 'opacity-0'
@@ -41,6 +41,6 @@ export default function CategoryCard({ category }: CategoryCardProps) {
           <h3 className="text-white text-xl md:text-2xl font-display">{title}</h3>
         </div>
       </motion.div>
-    </Link>
+      </Link>
   );
 } 

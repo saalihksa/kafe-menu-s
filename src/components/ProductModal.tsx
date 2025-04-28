@@ -75,13 +75,11 @@ export default function ProductModal({ item, isOpen, onClose }: ProductModalProp
           className="bg-[#e7e1d4] rounded-lg shadow-xl max-w-lg w-full overflow-hidden z-50"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="relative h-64 w-full">
-            <Image 
-              src={item.image || '/images/placeholder.jpg'} 
+          <div className="relative">
+            <img 
+              src={item.image} 
               alt={item.name}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 500px"
+              className="w-full h-64 object-cover"
             />
             <button
               onClick={onClose}

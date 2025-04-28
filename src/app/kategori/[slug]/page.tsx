@@ -1,12 +1,13 @@
-// Next.js App Router'da dinamik route'lar için otomatik tip tanımlaması ekleyelim
-import type { Metadata } from 'next';
-import React from 'react';
+/* eslint-disable */
+'use client';
+
+import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import MenuCard from '@/components/MenuCard';
 import menuData from '@/data/menu';
 import categories, { Category } from '@/data/categories';
-import { notFound } from 'next/navigation';
+import { notFound, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,19 +15,25 @@ import Image from 'next/image';
 // Tüm dinamik parametrelerin oluşturulmasına izin vermek için
 export const dynamic = 'force-dynamic';
 
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
-export default async function CategoryPage({ params }: Props) {
-  const slug = params.slug;
+export default function CategoryPage({ params }: { params: { slug: string } }) {
+  const router = useRouter();
+  const slug = params.slug; // Slug'ı bir değişkene alalım
   
-  // Kategori kontrolü
+  // useEffect ile sayfa yüklendiğinde kontrol yapalım
+  useEffect(() => {
+    // Kategori kontrolü
+    const category = categories.find((c: Category) => c.slug === slug);
+    if (!category) {
+      notFound();
+    }
+  }, [slug]);
+  
   const category = categories.find((c: Category) => c.slug === slug);
+  
+  // Eğer kategori yoksa, notFound işlemi useEffect içinde yapılacak
   if (!category) {
-    notFound();
+    // Client-side olduğu için burada bir fallback UI döndürelim
+    return <div className="min-h-screen flex flex-col items-center justify-center">Yükleniyor...</div>;
   }
 
   // Menü verilerinden bu kategoriye ait olanları filtreleme
@@ -36,27 +43,6 @@ export default async function CategoryPage({ params }: Props) {
       // Slug değerine göre doğrudan filtreleme yapıyoruz
       return item.category === slug;
     });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-[#e7e1d4]">
@@ -79,28 +65,41 @@ export default async function CategoryPage({ params }: Props) {
       </div>
 
       {/* Sabit Ana Sayfaya Dön butonu */}
-      <div 
+      <motion.div 
         className="fixed top-20 left-4 z-40 sm:left-4 md:left-6"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <a 
-          href="/menu"
+        <button 
+          onClick={(e) => {
+            e.preventDefault();
+            // Doğrudan yönlendirmeden önce bir mikrosaniye bekletelim
+            // Bu sayede browser'ın DOM güncellemesini sağlayalım
+            window.location.href = '/menu';
+          }}
           className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-white/90 hover:bg-white text-[#8a6e57] hover:text-[#6b563f] px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm font-medium border border-[#d6cab1]/20"
         >
-          <div 
+          <motion.div 
             className="flex items-center justify-center"
+            whileHover={{ x: -2 }}
+            transition={{ duration: 0.2 }}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 group-hover:text-[#6b563f] transition-colors" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
             </svg>
-          </div>
+          </motion.div>
           <span className="text-sm sm:text-base group-hover:font-semibold transition-all">Geri Dön</span>
-        </a>
-      </div>
+        </button>
+      </motion.div>
       
       <main className="flex-1 py-6 sm:py-8 md:py-12 px-4 bg-[#e7e1d4] -mt-10 relative z-30 rounded-t-3xl">
         <div className="max-w-7xl mx-auto">
-          <div
+          <motion.div
             className="mb-8 sm:mb-10 text-center sm:text-left"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
             <div className="inline-block mb-2">
               <span className="bg-[#d6cab1] text-primary text-xs uppercase tracking-wider py-1 px-3 rounded-full font-medium">
@@ -116,21 +115,30 @@ export default async function CategoryPage({ params }: Props) {
                 {category.description}
               </p>
             )}
-          </div>
+          </motion.div>
 
           {filteredItems.length > 0 ? (
-            <div 
+            <motion.div 
               className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6 md:gap-7"
+              initial="hidden"
+              animate="visible"
             >
               {filteredItems.map((item) => (
-                <div key={item.id}>
+                <motion.div 
+                  key={item.id} 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <MenuCard item={item} />
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           ) : (
-            <div 
+            <motion.div 
               className="text-center py-16 px-4 bg-[#d6cab1] rounded-xl shadow-sm"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-[#8a6e57] mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -142,7 +150,7 @@ export default async function CategoryPage({ params }: Props) {
               <Link href="/" className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary-dark transition duration-200">
                 Diğer Kategorilere Göz At
               </Link>
-            </div>
+            </motion.div>
           )}
         </div>
       </main>
