@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import MenuCard from '@/components/MenuCard';
 import menuData from '@/data/menu';
 import categories, { Category } from '@/data/categories';
-import { notFound, useRouter } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -15,7 +15,6 @@ import Image from 'next/image';
 export const dynamic = 'force-dynamic';
 
 export default function CategoryPage({ params }: { params: { slug: string } }) {
-  const router = useRouter();
   const slug = params.slug; // Slug'ı bir değişkene alalım
   
   // useEffect ile sayfa yüklendiğinde kontrol yapalım

@@ -6,7 +6,6 @@ import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { categories } from '@/data/categories';
 import CategoryCard from '@/components/CategoryCard';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function MenuPage() {
