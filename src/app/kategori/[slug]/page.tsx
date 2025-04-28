@@ -1,6 +1,6 @@
-'use client';
-
-import React, { useEffect } from 'react';
+// Next.js App Router'da dinamik route'lar için otomatik tip tanımlaması ekleyelim
+import type { Metadata } from 'next';
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import MenuCard from '@/components/MenuCard';
@@ -14,30 +14,19 @@ import Image from 'next/image';
 // Tüm dinamik parametrelerin oluşturulmasına izin vermek için
 export const dynamic = 'force-dynamic';
 
-type Props = {
+interface Props {
   params: {
     slug: string;
   };
-};
+}
 
-export default function CategoryPage({ params }: Props) {
-  const slug = params.slug; // Slug'ı bir değişkene alalım
+export default async function CategoryPage({ params }: Props) {
+  const slug = params.slug;
   
-  // useEffect ile sayfa yüklendiğinde kontrol yapalım
-  useEffect(() => {
-    // Kategori kontrolü
-    const category = categories.find((c: Category) => c.slug === slug);
-    if (!category) {
-      notFound();
-    }
-  }, [slug]);
-  
+  // Kategori kontrolü
   const category = categories.find((c: Category) => c.slug === slug);
-  
-  // Eğer kategori yoksa, notFound işlemi useEffect içinde yapılacak
   if (!category) {
-    // Client-side olduğu için burada bir fallback UI döndürelim
-    return <div className="min-h-screen flex flex-col items-center justify-center">Yükleniyor...</div>;
+    notFound();
   }
 
   // Menü verilerinden bu kategoriye ait olanları filtreleme
@@ -90,41 +79,28 @@ export default function CategoryPage({ params }: Props) {
       </div>
 
       {/* Sabit Ana Sayfaya Dön butonu */}
-      <motion.div 
+      <div 
         className="fixed top-20 left-4 z-40 sm:left-4 md:left-6"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <button 
-          onClick={(e) => {
-            e.preventDefault();
-            // Doğrudan yönlendirmeden önce bir mikrosaniye bekletelim
-            // Bu sayede browser'ın DOM güncellemesini sağlayalım
-            window.location.href = '/menu';
-          }}
+        <a 
+          href="/menu"
           className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-white/90 hover:bg-white text-[#8a6e57] hover:text-[#6b563f] px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm font-medium border border-[#d6cab1]/20"
         >
-          <motion.div 
+          <div 
             className="flex items-center justify-center"
-            whileHover={{ x: -2 }}
-            transition={{ duration: 0.2 }}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 group-hover:text-[#6b563f] transition-colors" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
             </svg>
-          </motion.div>
+          </div>
           <span className="text-sm sm:text-base group-hover:font-semibold transition-all">Geri Dön</span>
-        </button>
-      </motion.div>
+        </a>
+      </div>
       
       <main className="flex-1 py-6 sm:py-8 md:py-12 px-4 bg-[#e7e1d4] -mt-10 relative z-30 rounded-t-3xl">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <div
             className="mb-8 sm:mb-10 text-center sm:text-left"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
           >
             <div className="inline-block mb-2">
               <span className="bg-[#d6cab1] text-primary text-xs uppercase tracking-wider py-1 px-3 rounded-full font-medium">
@@ -140,26 +116,21 @@ export default function CategoryPage({ params }: Props) {
                 {category.description}
               </p>
             )}
-          </motion.div>
+          </div>
 
           {filteredItems.length > 0 ? (
-            <motion.div 
+            <div 
               className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6 md:gap-7"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
             >
               {filteredItems.map((item) => (
-                <motion.div key={item.id} variants={itemVariants}>
+                <div key={item.id}>
                   <MenuCard item={item} />
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           ) : (
-            <motion.div 
+            <div 
               className="text-center py-16 px-4 bg-[#d6cab1] rounded-xl shadow-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-[#8a6e57] mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -171,7 +142,7 @@ export default function CategoryPage({ params }: Props) {
               <Link href="/" className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary-dark transition duration-200">
                 Diğer Kategorilere Göz At
               </Link>
-            </motion.div>
+            </div>
           )}
         </div>
       </main>
