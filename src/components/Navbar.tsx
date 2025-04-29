@@ -4,10 +4,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,12 +28,20 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#d6cab1]/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-[#d6cab1]/90 backdrop-blur-sm shadow-sm' 
+        : isHomePage 
+          ? 'bg-transparent' 
+          : 'bg-[#d6cab1]/65 backdrop-blur-sm'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
+              <div className={`transition-all duration-300 py-2 px-4 rounded-lg ${isHomePage ? 'opacity-70 hover:opacity-100 bg-white/20 backdrop-blur-sm' : 'opacity-85 hover:opacity-100 bg-white/30 backdrop-blur-sm'}`}>
               <span className="font-display text-xl text-primary">Logo Alanı</span>
+              </div>
             </Link>
           </div>
           
@@ -44,9 +55,6 @@ export default function Navbar() {
             </Link>
             <Link href="/about" className="font-medium text-primary hover:text-accent transition-colors">
               Hakkımızda
-            </Link>
-            <Link href="/contact" className="font-medium text-primary hover:text-accent transition-colors">
-              İletişim
             </Link>
           </div>
 
@@ -70,7 +78,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <motion.div 
-        className={`md:hidden bg-[#e7e1d4]/95 backdrop-blur-sm`}
+        className={`md:hidden ${isHomePage ? 'bg-[#e7e1d4]/95' : 'bg-[#e7e1d4]/98'} backdrop-blur-sm`}
         initial={{ height: 0, opacity: 0 }}
         animate={{ 
           height: isOpen ? 'auto' : 0,
@@ -99,13 +107,6 @@ export default function Navbar() {
             onClick={() => setIsOpen(false)}
           >
             Hakkımızda
-          </Link>
-          <Link 
-            href="/contact" 
-            className="block px-3 py-2 rounded-md text-base font-medium text-primary hover:text-accent hover:bg-accent-light transition-colors"
-            onClick={() => setIsOpen(false)}
-          >
-            İletişim
           </Link>
         </div>
       </motion.div>

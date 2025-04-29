@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -8,6 +8,24 @@ import VideoSlider from './ImageSlider';
 
 export default function Hero() {
   const router = useRouter();
+  const isVideoTriggered = useRef(false);
+  
+  // Sayfa yüklenir yüklenmez video başlatmayı garantiyelim
+  useEffect(() => {
+    // Component mount edildiğinde otomatik video oynatma için hazırlık
+    isVideoTriggered.current = true;
+
+    // Kategorileri önceden yükleme (video oynatmaya odaklanabilmek için)
+    import('@/data/categories').catch(() => {});
+
+    // Video elementinin doğrudan oynatılmasını deneyelim
+    const videoElements = document.querySelectorAll('video');
+    if (videoElements.length > 0) {
+      for (const video of videoElements) {
+        video.play().catch(() => {});
+      }
+    }
+  }, []);
   
   // Navigasyon işlevini optimize edelim
   const handleNavigateToMenu = useCallback((event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -21,10 +39,11 @@ export default function Hero() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Video slider */}
+      {/* Video slider - otomatik başlayacak şekilde ayarlandı */}
       <VideoSlider 
         videoSrc="/videos/cafe-video.mp4" 
         posterSrc="/images/hero-bg.jpg" 
+        isEnabled={true}
       />
       
       {/* Arka plan karartması */}

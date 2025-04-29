@@ -49,8 +49,8 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
       <Navbar />
       
       {/* Hero Banner */}
-      <div className="relative w-full h-48 sm:h-60 md:h-72 lg:h-80 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(33,33,33,0.4)] to-[rgba(33,33,33,0.2)] z-10"></div>
+      <div className="relative w-full h-40 sm:h-48 md:h-56 lg:h-64 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(33,33,33,0.2)] to-[rgba(33,33,33,0.1)] z-10"></div>
         {category.image ? (
           <Image 
             src={category.image} 
@@ -74,8 +74,6 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
         <button 
           onClick={(e) => {
             e.preventDefault();
-            // Doğrudan yönlendirmeden önce bir mikrosaniye bekletelim
-            // Bu sayede browser'ın DOM güncellemesini sağlayalım
             window.location.href = '/menu';
           }}
           className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-white/90 hover:bg-white text-[#8a6e57] hover:text-[#6b563f] px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm font-medium border border-[#d6cab1]/20"
@@ -93,42 +91,61 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
         </button>
       </motion.div>
       
-      <main className="flex-1 py-6 sm:py-8 md:py-12 px-4 bg-[#e7e1d4] -mt-10 relative z-30 rounded-t-3xl">
-        <div className="max-w-7xl mx-auto">
+      <main className="flex-1 py-8 sm:py-10 md:py-12 px-4 bg-[#e7e1d4] -mt-10 relative z-30 rounded-t-3xl">
+        <div className="max-w-6xl mx-auto">
+          {/* Başlık alanı - Görseldeki gibi modern tasarım */}
           <motion.div
-            className="mb-8 sm:mb-10 text-center sm:text-left"
+            className="mb-12 sm:mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-block mb-2">
-              <span className="bg-[#d6cab1] text-primary text-xs uppercase tracking-wider py-1 px-3 rounded-full font-medium">
-                {filteredItems.length} Ürün
-              </span>
+            {/* Ürün sayısı - Üstte ortalanmış */}
+            <div className="flex flex-col items-center justify-center text-center mb-8">
+              <div className="inline-block mb-4 bg-[#d6cab1] text-[#4a4a4a] text-xs uppercase tracking-wider py-1.5 px-4 rounded-full font-medium shadow-sm">
+                {filteredItems.length} ÜRÜN
+              </div>
+              
+              {/* Görseldeki gibi altı sarı çizgili başlık - Tam ortalanmış */}
+              <h1 className="text-center text-[42px] md:text-[60px] font-display font-bold text-[#3d3d3d] relative inline-block mx-auto">
+                {category.title}
+                <div className="absolute -bottom-3 left-0 w-full h-1.5 bg-[#e9c46a]"></div>
+              </h1>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-3 relative">
-              {category.title}
-              <span className="absolute -bottom-2 left-1/2 sm:left-0 w-16 h-1 bg-accent transform -translate-x-1/2 sm:translate-x-0"></span>
-            </h1>
+            
+            {/* Kategori açıklaması - Ortalanmış */}
             {category.description && (
-              <p className="text-lg sm:text-xl text-[var(--text-muted)] max-w-2xl mt-4">
+              <motion.p 
+                className="text-center text-lg sm:text-xl text-[#696969] leading-relaxed mt-4 max-w-3xl mx-auto"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 {category.description}
-              </p>
+              </motion.p>
             )}
           </motion.div>
 
           {filteredItems.length > 0 ? (
             <motion.div 
-              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6 md:gap-7"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 auto-rows-fr"
               initial="hidden"
               animate="visible"
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1
+                  }
+                }
+              }}
             >
-              {filteredItems.map((item) => (
+              {filteredItems.map((item, index) => (
                 <motion.div 
                   key={item.id} 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="h-full aspect-[3/4]"
                 >
                   <MenuCard item={item} />
                 </motion.div>
@@ -136,7 +153,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
             </motion.div>
           ) : (
             <motion.div 
-              className="text-center py-16 px-4 bg-[#d6cab1] rounded-xl shadow-sm"
+              className="text-center py-16 px-4 bg-white/50 backdrop-blur-sm rounded-xl shadow-sm"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >

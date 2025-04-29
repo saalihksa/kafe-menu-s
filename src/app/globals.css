@@ -197,3 +197,19 @@ html, body {
 #menu-kategorilerimiz {
   scroll-margin-top: 80px;
 }
+
+/* Keyframe Animasyonları */
+@keyframes subtle-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@layer utilities {
+  .animate-subtle-zoom {
+    animation: subtle-zoom 15s ease-in-out infinite alternate;
+  }
+}
