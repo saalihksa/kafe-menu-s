@@ -66,7 +66,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 
       {/* Sabit Ana Sayfaya Dön butonu */}
       <motion.div 
-        className="fixed top-20 left-4 z-40 sm:left-4 md:left-6"
+        className="fixed top-20 left-4 z-[51] sm:left-4 md:left-6"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
@@ -74,7 +74,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
         <button 
           onClick={(e) => {
             e.preventDefault();
-            window.location.href = '/menu';
+            router.push('/menu');
           }}
           className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-white/90 hover:bg-white text-[#8a6e57] hover:text-[#6b563f] px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm font-medium border border-[#d6cab1]/20"
         >
@@ -128,13 +128,13 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 
           {filteredItems.length > 0 ? (
             <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 auto-rows-fr"
+              className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-4 auto-rows-fr"
               initial="hidden"
               animate="visible"
               variants={{
                 visible: {
                   transition: {
-                    staggerChildren: 0.1
+                    staggerChildren: 0.05
                   }
                 }
               }}
@@ -142,10 +142,10 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
               {filteredItems.map((item, index) => (
                 <motion.div 
                   key={item.id} 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="h-full aspect-[3/4]"
+                  transition={{ duration: 0.3, delay: index * 0.03 }}
+                  className="h-full"
                 >
                   <MenuCard item={item} />
                 </motion.div>

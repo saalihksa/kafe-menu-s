@@ -36,11 +36,11 @@ const MenuCard: React.FC<MenuCardProps> = ({ item }) => {
       <motion.div
         className="relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col cursor-pointer border border-[rgba(0,0,0,0.03)]"
         whileHover={{ 
-          y: -5,
-          boxShadow: "0 15px 30px -10px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)",
-          transition: { duration: 0.3 },
+          y: -4,
+          boxShadow: "0 10px 20px -8px rgba(0, 0, 0, 0.1), 0 6px 8px -5px rgba(0, 0, 0, 0.04)",
+          transition: { duration: 0.25 },
         }}
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         onClick={openModal}
         style={{ width: '100%', height: '100%' }}
@@ -54,8 +54,8 @@ const MenuCard: React.FC<MenuCardProps> = ({ item }) => {
                 } transition-opacity duration-300`}
               />
               <motion.div
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.4 }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
                 className="h-full"
               >
                 <Image
@@ -68,54 +68,54 @@ const MenuCard: React.FC<MenuCardProps> = ({ item }) => {
               </motion.div>
               
               {item.isPopular && (
-                <div className="absolute top-3 right-3 z-10 bg-gradient-to-r from-[#FF5C5C] to-[#FF3C3C] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md flex items-center">
-                  <FaHeart className="h-3 w-3 mr-1.5" />
-                  Popüler
+                <div className="absolute top-2 right-2 z-10 bg-gradient-to-r from-[#FF5C5C] to-[#FF3C3C] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md flex items-center">
+                    <FaHeart className="h-2.5 w-2.5 mr-1" />
+                    Popüler
                 </div>
               )}
             </>
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-[#d6cab1] to-[#e7e1d4] flex items-center justify-center">
-              <span className="text-[#8a6e57] opacity-70 font-medium">Görsel Yok</span>
+              <span className="text-[#8a6e57] opacity-70 text-sm font-medium">Görsel Yok</span>
             </div>
           )}
           
-          <div className="absolute bottom-3 right-3">
-            <div className="bg-[#8a6e57] text-white font-bold px-3 py-1.5 rounded-full shadow-md">
+          <div className="absolute bottom-2.5 right-2.5 z-10">
+            <div className="bg-[#8a6e57] text-white text-base font-bold px-3 py-1.5 rounded-lg shadow-lg">
               {item.price} ₺
             </div>
           </div>
         </div>
 
-        <div className="p-4 flex-1 flex flex-col justify-between min-h-[120px]">
+        <div className="p-3 flex-1 flex flex-col justify-between min-h-[100px]">
           <div className="flex flex-col">
-            <h3 className="font-semibold text-[#3d3d3d] font-display text-lg leading-tight mb-2 line-clamp-2">
+            <h3 className="font-bold text-[#3d3d3d] font-display text-lg leading-tight mb-1.5 line-clamp-2">
               {item.name}
             </h3>
             
             {item.description && (
-              <p className="text-sm text-[#696969] line-clamp-2 mb-3">
+              <p className="text-xs text-[#696969] line-clamp-2 mb-2">
                 {item.description}
               </p>
             )}
           </div>
 
-          <div className="flex flex-wrap gap-1.5 mt-auto">
+          <div className="flex flex-wrap gap-1 mt-auto">
             {item.isVegetarian && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-green-100 text-green-800">
-                <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1.5"></span>
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] bg-green-100 text-green-800">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1"></span>
                 Vejetaryen
               </span>
             )}
             {item.isVegan && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-teal-100 text-teal-800">
-                <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mr-1.5"></span>
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] bg-teal-100 text-teal-800">
+                <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mr-1"></span>
                 Vegan
               </span>
             )}
             {item.isGlutenFree && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-amber-100 text-amber-800">
-                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-1.5"></span>
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] bg-amber-100 text-amber-800">
+                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-1"></span>
                 Glutensiz
               </span>
             )}

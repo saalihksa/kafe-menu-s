@@ -4,71 +4,81 @@ export type Category = {
   slug: string;
   image: string;
   description?: string;
+  group: 'kahveler' | 'icecekler' | 'tatlilar' | 'bakery';
 };
 
 export const categories: Category[] = [
   {
-    id: 'caylar',
-    title: 'Çaylar',
-    slug: 'caylar',
-    image: '/images/categories/caylar.jpg',
-    description: 'Geleneksel ve özel çay çeşitlerimiz'
+    id: 'aromali-sicak-kahveler',
+    title: 'Aromalı Sıcak Kahveler',
+    slug: 'aromali-sicak-kahveler',
+    image: '/images/categories/sicak-icecekler.jpg',
+    description: 'Çeşitli lezzetlerle hazırlanan özel sıcak kahvelerimiz',
+    group: 'kahveler'
   },
   {
-    id: 'geleneksel-kahveler',
-    title: 'Geleneksel Kahveler',
-    slug: 'geleneksel-kahveler',
-    image: '/images/categories/geleneksel-kahveler.jpg',
-    description: 'Türk kahvesi ve diğer geleneksel kahve çeşitlerimiz'
-  },
-  {
-    id: 'dunya-kahveleri',
-    title: 'Dünya Kahveleri',
-    slug: 'dunya-kahveleri',
+    id: 'espresso-bazli-kahveler',
+    title: 'Espresso Bazlı Kahveler',
+    slug: 'espresso-bazli-kahveler',
     image: '/images/categories/dunya-kahveleri.jpg',
-    description: 'Dünyanın farklı bölgelerinden özel kahve çeşitlerimiz'
+    description: 'Kaliteli espresso bazlı kahve çeşitlerimiz',
+    group: 'kahveler'
   },
   {
-    id: 'meyve-sulari',
-    title: 'Meyve Suları',
-    slug: 'meyve-sulari',
-    image: '/images/categories/meyve-sulari.jpg',
-    description: 'Taze sıkılmış ve doğal meyve suları'
-  },
-  {
-    id: 'tatlilar',
-    title: 'Tatlılar',
-    slug: 'tatlilar',
-    image: '/images/categories/tatlilar.jpg',
-    description: 'El yapımı taze tatlı çeşitlerimiz'
-  },
-  {
-    id: 'tostlar',
-    title: 'Tostlar',
-    slug: 'tostlar',
-    image: '/images/categories/tostlar.jpg',
-    description: 'Özel ekmekle hazırlanan tost çeşitlerimiz'
+    id: 'demleme-kahveler',
+    title: 'Demleme Kahveler',
+    slug: 'demleme-kahveler',
+    image: '/images/categories/geleneksel-kahveler.jpg',
+    description: 'Özel demleme yöntemleriyle hazırlanan kahvelerimiz',
+    group: 'kahveler'
   },
   {
     id: 'soguk-kahveler',
     title: 'Soğuk Kahveler',
     slug: 'soguk-kahveler',
     image: '/images/categories/soguk-kahveler.jpg',
-    description: 'Yaz aylarının vazgeçilmezi soğuk kahvelerimiz'
+    description: 'Serinleten lezzetli soğuk kahve çeşitlerimiz',
+    group: 'kahveler'
   },
   {
-    id: 'soguk-icecekler',
-    title: 'Soğuk İçecekler',
-    slug: 'soguk-icecekler',
+    id: 'aromali-soguk-kahveler',
+    title: 'Aromalı Soğuk Kahveler',
+    slug: 'aromali-soguk-kahveler',
     image: '/images/categories/soguk-icecekler.jpg',
-    description: 'Serinleten içecek çeşitlerimiz'
+    description: 'Özel aromalarla zenginleştirilmiş soğuk kahvelerimiz',
+    group: 'kahveler'
   },
   {
     id: 'sicak-icecekler',
     title: 'Sıcak İçecekler',
     slug: 'sicak-icecekler',
-    image: '/images/categories/sicak-icecekler.jpg',
-    description: 'Özenle hazırlanan sıcak içeceklerimiz'
+    image: '/images/categories/caylar.jpg',
+    description: 'Sıcak çikolata gibi özel içeceklerimiz',
+    group: 'icecekler'
+  },
+  {
+    id: 'diger-icecekler',
+    title: 'Kahve Konseptleri',
+    slug: 'diger-icecekler',
+    image: '/images/categories/meyve-sulari.jpg',
+    description: 'Farklı kahve deneyimleri sunan özel konseptlerimiz',
+    group: 'kahveler'
+  },
+  {
+    id: 'patisserie',
+    title: 'Patisserie Menüsü',
+    slug: 'patisserie',
+    image: '/images/categories/tatlilar.jpg',
+    description: 'Özel tariflerle hazırlanan tatlı ve pasta çeşitlerimiz',
+    group: 'tatlilar'
+  },
+  {
+    id: 'bakery',
+    title: 'Bakery Menüsü',
+    slug: 'bakery',
+    image: '/images/categories/tostlar.jpg',
+    description: 'Taze pişirilen ekmek, kek ve kurabiye çeşitlerimiz',
+    group: 'bakery'
   }
 ];
 
