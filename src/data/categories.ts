@@ -4,7 +4,7 @@ export type Category = {
   slug: string;
   image: string;
   description?: string;
-  group: 'kahveler' | 'icecekler' | 'tatlilar' | 'bakery';
+  group: 'icecekler' | 'tatlilar' | 'bakery';
 };
 
 export const categories: Category[] = [
@@ -14,7 +14,7 @@ export const categories: Category[] = [
     slug: 'aromali-sicak-kahveler',
     image: '/images/categories/sicak-icecekler.jpg',
     description: 'Çeşitli lezzetlerle hazırlanan özel sıcak kahvelerimiz',
-    group: 'kahveler'
+    group: 'icecekler'
   },
   {
     id: 'aromali-soguk-kahveler',
@@ -22,7 +22,7 @@ export const categories: Category[] = [
     slug: 'aromali-soguk-kahveler',
     image: '/images/categories/soguk-icecekler.jpg',
     description: 'Özel aromalarla zenginleştirilmiş soğuk kahvelerimiz',
-    group: 'kahveler'
+    group: 'icecekler'
   },
   {
     id: 'demleme-kahveler',
@@ -30,7 +30,7 @@ export const categories: Category[] = [
     slug: 'demleme-kahveler',
     image: '/images/categories/geleneksel-kahveler.jpg',
     description: 'Özel demleme yöntemleriyle hazırlanan kahvelerimiz',
-    group: 'kahveler'
+    group: 'icecekler'
   },
   {
     id: 'diger-icecekler',
@@ -38,7 +38,7 @@ export const categories: Category[] = [
     slug: 'diger-icecekler',
     image: '/images/categories/meyve-sulari.jpg',
     description: 'Farklı kahve deneyimleri sunan özel konseptlerimiz',
-    group: 'kahveler'
+    group: 'icecekler'
   },
   {
     id: 'sicak-icecekler',
@@ -54,7 +54,7 @@ export const categories: Category[] = [
     slug: 'soguk-kahveler',
     image: '/images/categories/soguk-kahveler.jpg',
     description: 'Serinleten lezzetli soğuk kahve çeşitlerimiz',
-    group: 'kahveler'
+    group: 'icecekler'
   },
   {
     id: 'espresso-bazli-kahveler',
@@ -62,7 +62,7 @@ export const categories: Category[] = [
     slug: 'espresso-bazli-kahveler',
     image: '/images/categories/dunya-kahveleri.jpg',
     description: 'Kaliteli espresso bazlı kahve çeşitlerimiz',
-    group: 'kahveler'
+    group: 'icecekler'
   },
   {
     id: 'patisserie',

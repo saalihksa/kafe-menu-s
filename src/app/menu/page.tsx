@@ -11,12 +11,11 @@ import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 
 // Filtre butonları için tip tanımı
-type FilterType = 'all' | 'kahveler' | 'icecekler' | 'tatlilar' | 'bakery';
+type FilterType = 'all' | 'icecekler' | 'tatlilar' | 'bakery';
 
 // Filtre butonlarının tanımları
 const filters: { label: string; value: FilterType }[] = [
   { label: 'Tümü', value: 'all' },
-  { label: 'Kahveler', value: 'kahveler' },
   { label: 'İçecekler', value: 'icecekler' },
   { label: 'Tatlılar', value: 'tatlilar' },
   { label: 'Bakery', value: 'bakery' },
@@ -198,58 +197,108 @@ export default function MenuPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-10 sm:mb-16"
+              transition={{ duration: 0.6 }}
+              className="mb-12 sm:mb-18 relative"
             >
               <div className="relative flex flex-col items-center">
                 {/* Dekoratif arka plan elemanları */}
-                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-56 h-56 rounded-full bg-[#e7e1d4]/60 blur-xl -z-10"></div>
-                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 rotate-12 w-40 h-1 bg-[#b8a88a]/40"></div>
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 -rotate-12 w-48 h-1 bg-[#9a8a6c]/40"></div>
+                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-[#e7e1d4]/70 blur-xl -z-10"></div>
+                
+                {/* Parıltı efekti */}
+                <motion.div 
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-white opacity-0 rounded-full blur-3xl -z-5"
+                  animate={{ 
+                    opacity: [0, 0.03, 0],
+                    scale: [0.8, 1.2, 0.8]
+                  }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 6, 
+                    ease: "easeInOut" 
+                  }}
+                />
                 
                 {/* Başlık ikonu - yeni tasarım */}
-                <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#b8a88a] to-[#d6cab1] shadow-lg flex items-center justify-center mb-5 sm:mb-7 transform hover:scale-105 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 sm:h-9 sm:w-9 text-white drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                <motion.div 
+                  className="w-16 h-16 sm:w-22 sm:h-22 rounded-full bg-gradient-to-br from-[#b8a88a] to-[#8a6e57] shadow-xl flex items-center justify-center mb-6 sm:mb-8 transform hover:scale-105 transition-all duration-300 relative z-10"
+                  style={{
+                    boxShadow: "0 8px 20px rgba(138, 110, 87, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.2)"
+                  }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    rotate: 5,
+                    boxShadow: "0 10px 24px rgba(138, 110, 87, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.3)"
+                  }}
+                  initial={{ scale: 0.6, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 sm:h-10 sm:w-10 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth="1.8" 
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" 
+                    />
                   </svg>
-                </div>
+                  
+                  {/* Işık yansıması efekti */}
+                  <div className="absolute inset-0 rounded-full overflow-hidden">
+                    <div className="absolute top-0 left-1/4 w-1/3 h-1.5 bg-white opacity-30 blur-sm transform rotate-25"></div>
+                  </div>
+                </motion.div>
                 
                 {/* Başlık metni - modernize edildi */}
                 <motion.h2 
                   id="menu-heading"
-                  className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#8a6e57] tracking-wide mb-4 sm:mb-5 text-center drop-shadow-sm"
+                  className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#8a6e57] tracking-wide mb-4 sm:mb-5 text-center relative z-10 text-shadow-xl"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
+                  style={{
+                    textShadow: "0px 2px 4px rgba(0,0,0,0.15), 0px 4px 12px rgba(138, 110, 87, 0.1)",
+                    background: "linear-gradient(to bottom, #8a6e57, #60472f)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    letterSpacing: "0.02em",
+                  }}
                 >
-                Menü Kategorilerimiz
+                  Menü Kategorilerimiz
                 </motion.h2>
                 
-                {/* Alt çizgi efekti - genişletildi */}
-                <div className="relative h-2 w-40 sm:w-56 mb-4 sm:mb-6">
+                {/* Alt çizgi efekti - geliştirildi */}
+                <div className="relative h-2 w-48 sm:w-64 md:w-72 mb-6 sm:mb-8">
                   <motion.div 
-                    className="absolute inset-0 h-1.5 bg-gradient-to-r from-transparent via-[#b8a88a] to-transparent rounded-full"
+                    className="absolute inset-0 h-2 bg-gradient-to-r from-transparent via-[#b8a88a] to-transparent rounded-full shadow-md"
                     initial={{ width: 0, opacity: 0 }}
                     animate={{ width: "100%", opacity: 1 }}
                     transition={{ duration: 0.7, delay: 0.4 }}
                   ></motion.div>
+                  <motion.div 
+                    className="absolute inset-0 top-[5px] h-[1px] bg-gradient-to-r from-transparent via-white to-transparent rounded-full opacity-50"
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: "80%", opacity: 0.5, x: "10%" }}
+                    transition={{ duration: 0.7, delay: 0.5 }}
+                  ></motion.div>
                 </div>
                 
-                {/* İlgi çekici rozet - geliştirme */}
-                <motion.div 
-                  className="bg-gradient-to-r from-[#9a8a6c] to-[#b8a88a] text-white text-xs sm:text-sm px-4 py-1.5 sm:px-5 sm:py-2 rounded-full shadow-md transform hover:scale-105 transition-transform duration-300"
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 0.6 }}
-                  aria-label={`${categories.length} farklı menü kategorisi sunuyoruz`}
-                >
-                  <span className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    {categories.length} Farklı Kategori
-                  </span>
-                </motion.div>
+                {/* Dekoratif vurgu eklendi */}
+                <motion.div
+                  className="absolute w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full bg-[#8a6e57] opacity-5 blur-3xl -z-10"
+                  style={{ 
+                    top: "calc(50% - 50px)", 
+                    left: "calc(50% - 70px)",
+                  }}
+                  animate={{ 
+                    scale: [1, 1.05, 1],
+                    opacity: [0.03, 0.05, 0.03]
+                  }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 4,
+                    ease: "easeInOut"
+                  }}
+                ></motion.div>
               </div>
             </motion.div>
 
