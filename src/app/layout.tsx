@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
@@ -14,9 +14,55 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Cappadocia Coffee & Bakery",
-  description: "Doğal malzemeler ve özel kahvelerle hazırlanan eşsiz lezzetler",
+  description: "Doğal malzemeler ve özel kahvelerle hazırlanan eşsiz lezzetler. Üsküdar'da hizmet veren Cappadocia Coffee & Bakery'de kahveler, tatlılar ve birbirinden lezzetli bakery ürünleri sizi bekliyor.",
+  keywords: "cappadocia coffee, bakery, cafe, kahve, tatlı, üsküdar cafe, istanbul cafe",
+  authors: [{ name: "Cappadocia Coffee & Bakery" }],
+  applicationName: "Cappadocia Coffee & Bakery",
+  generator: "Next.js",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://www.cappadociacoffee.com",
+    languages: {
+      "tr": "https://www.cappadociacoffee.com"
+    }
+  },
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    url: "https://www.cappadociacoffee.com",
+    title: "Cappadocia Coffee & Bakery",
+    description: "Doğal malzemeler ve özel kahvelerle hazırlanan eşsiz lezzetler. Üsküdar'da hizmet veren mekanımızda birbirinden lezzetli seçenekler sizi bekliyor.",
+    siteName: "Cappadocia Coffee & Bakery",
+    images: [
+      {
+        url: "https://www.cappadociacoffee.com/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cappadocia Coffee & Bakery",
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cappadocia Coffee & Bakery",
+    description: "Doğal malzemeler ve özel kahvelerle hazırlanan eşsiz lezzetler ve bakery ürünleri",
+    images: ["https://www.cappadociacoffee.com/images/twitter-image.jpg"],
+  },
+  verification: {
+    google: "GOOGLE_SITE_VERIFICATION_ID",
+  },
+  creator: "Piston Creative",
+  publisher: "Cappadocia Coffee & Bakery",
 };
 
 export default function RootLayout({

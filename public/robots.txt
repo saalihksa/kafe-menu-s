@@ -1,0 +1,6 @@
+# https://www.cappadociacoffee.com robots.txt
+User-agent: *
+Allow: /
+
+# Sitenin tamamına izin ver
+Sitemap: https://www.cappadociacoffee.com/sitemap.xml 

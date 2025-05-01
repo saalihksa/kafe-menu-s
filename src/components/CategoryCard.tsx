@@ -27,8 +27,8 @@ export default function CategoryCard({ category }: CategoryCardProps) {
         whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.2 }}
       >
-        {/* Arka plan gradyanı - daha hafif karartma */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/15 to-transparent opacity-60 group-hover/card:opacity-30 group-focus-visible/card:opacity-30 transition-opacity duration-300 z-10" />
+        {/* Arka plan gradyanı - daha koyu karartma */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-80 group-hover/card:opacity-50 group-focus-visible/card:opacity-50 transition-opacity duration-300 z-10" />
         
         {/* Yükleme durumu gösterimi */}
         {!isImageLoaded && (
@@ -56,21 +56,28 @@ export default function CategoryCard({ category }: CategoryCardProps) {
             fill
             sizes="(max-width: 768px) 50vw, 33vw"
             className={`object-cover object-center group-hover/card:scale-105 group-focus-visible/card:scale-105 transition-transform duration-500 ${
-                isImageLoaded ? 'opacity-100 filter brightness-[1.15] contrast-[1.05] saturate-[1.15]' : 'opacity-0'
+                isImageLoaded ? 'opacity-100 filter brightness-[1.2] contrast-[1.05] saturate-[1.15]' : 'opacity-0'
             }`}
             onLoad={() => setIsImageLoaded(true)}
             priority
           />
         </div>
         
-        {/* Başlık alanı ve açıklama - Başlık daha aşağıda */}
-        <div className="absolute inset-x-0 bottom-0 z-20 p-4 pb-6">
-          <div className="mx-auto max-w-[90%] sm:max-w-[85%] bg-white/45 backdrop-blur-md px-3 py-2.5 rounded-xl shadow-sm transform transition-transform duration-300 group-hover/card:translate-y-[-3px] group-focus-visible/card:translate-y-[-3px]">
-            <h3 className="font-display tracking-wide text-sm sm:text-base text-center text-[#2a2a2a] line-clamp-2 font-semibold min-h-[2.5rem] flex justify-center pt-1">
+        {/* Kategori Etiketi - Küçük ve transparan */}
+        <div className="absolute bottom-[calc(100%-1.5rem)] right-2 z-20">
+          <div className="bg-[#8a6e57]/60 text-white text-[10px] font-medium px-2 py-0.5 rounded shadow-sm backdrop-blur-sm">
+            Kategori
+          </div>
+        </div>
+        
+        {/* Başlık alanı - Beyaz yazı, satır kısıtlaması kaldırıldı */}
+        <div className="absolute inset-x-0 bottom-[-5px] z-20 p-4 pb-6">
+          <div className="mx-auto max-w-[95%] sm:max-w-[90%] bg-black/30 backdrop-blur-sm px-3 sm:px-4 py-3 rounded-xl shadow-lg border border-white/10 transform transition-transform duration-300 group-hover/card:translate-y-[-3px] group-focus-visible/card:translate-y-[-3px]">
+            <h3 className="category-title font-display tracking-wide font-bold text-center text-white min-h-[2.5rem] flex justify-center items-center text-shadow">
               {title}
             </h3>
             {description && (
-              <p className="text-xs text-[#5a5a5a] text-center mt-1 line-clamp-1 opacity-0 group-hover/card:opacity-100 group-focus-visible/card:opacity-100 transition-opacity duration-300">
+              <p className="text-xs sm:text-sm text-white/80 text-center mt-1 line-clamp-1 opacity-0 group-hover/card:opacity-100 group-focus-visible/card:opacity-100 transition-opacity duration-300">
                 {description}
               </p>
             )}

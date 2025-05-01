@@ -17,11 +17,11 @@ export const categories: Category[] = [
     group: 'kahveler'
   },
   {
-    id: 'espresso-bazli-kahveler',
-    title: 'Espresso Bazlı Kahveler',
-    slug: 'espresso-bazli-kahveler',
-    image: '/images/categories/dunya-kahveleri.jpg',
-    description: 'Kaliteli espresso bazlı kahve çeşitlerimiz',
+    id: 'aromali-soguk-kahveler',
+    title: 'Aromalı Soğuk Kahveler',
+    slug: 'aromali-soguk-kahveler',
+    image: '/images/categories/soguk-icecekler.jpg',
+    description: 'Özel aromalarla zenginleştirilmiş soğuk kahvelerimiz',
     group: 'kahveler'
   },
   {
@@ -33,19 +33,11 @@ export const categories: Category[] = [
     group: 'kahveler'
   },
   {
-    id: 'soguk-kahveler',
-    title: 'Soğuk Kahveler',
-    slug: 'soguk-kahveler',
-    image: '/images/categories/soguk-kahveler.jpg',
-    description: 'Serinleten lezzetli soğuk kahve çeşitlerimiz',
-    group: 'kahveler'
-  },
-  {
-    id: 'aromali-soguk-kahveler',
-    title: 'Aromalı Soğuk Kahveler',
-    slug: 'aromali-soguk-kahveler',
-    image: '/images/categories/soguk-icecekler.jpg',
-    description: 'Özel aromalarla zenginleştirilmiş soğuk kahvelerimiz',
+    id: 'diger-icecekler',
+    title: 'Kahve Konseptleri',
+    slug: 'diger-icecekler',
+    image: '/images/categories/meyve-sulari.jpg',
+    description: 'Farklı kahve deneyimleri sunan özel konseptlerimiz',
     group: 'kahveler'
   },
   {
@@ -57,11 +49,19 @@ export const categories: Category[] = [
     group: 'icecekler'
   },
   {
-    id: 'diger-icecekler',
-    title: 'Kahve Konseptleri',
-    slug: 'diger-icecekler',
-    image: '/images/categories/meyve-sulari.jpg',
-    description: 'Farklı kahve deneyimleri sunan özel konseptlerimiz',
+    id: 'soguk-kahveler',
+    title: 'Soğuk Kahveler',
+    slug: 'soguk-kahveler',
+    image: '/images/categories/soguk-kahveler.jpg',
+    description: 'Serinleten lezzetli soğuk kahve çeşitlerimiz',
+    group: 'kahveler'
+  },
+  {
+    id: 'espresso-bazli-kahveler',
+    title: 'Espresso Bazlı Kahveler',
+    slug: 'espresso-bazli-kahveler',
+    image: '/images/categories/dunya-kahveleri.jpg',
+    description: 'Kaliteli espresso bazlı kahve çeşitlerimiz',
     group: 'kahveler'
   },
   {

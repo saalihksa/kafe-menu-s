@@ -76,18 +76,18 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
             e.preventDefault();
             router.push('/menu');
           }}
-          className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-white/90 hover:bg-white text-[#8a6e57] hover:text-[#6b563f] px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm font-medium border border-[#d6cab1]/20"
+          className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#8a6e57]/90 to-[#a58b74]/90 hover:from-[#8a6e57] hover:to-[#a58b74] text-white px-3.5 sm:px-4 py-2.5 sm:py-2.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm border border-white/10"
         >
           <motion.div 
             className="flex items-center justify-center"
             whileHover={{ x: -2 }}
             transition={{ duration: 0.2 }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 group-hover:text-[#6b563f] transition-colors" viewBox="0 0 20 20" fill="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 transition-colors" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
             </svg>
           </motion.div>
-          <span className="text-sm sm:text-base group-hover:font-semibold transition-all">Geri Dön</span>
+          <span className="text-sm sm:text-base font-medium">Geri Dön</span>
         </button>
       </motion.div>
       

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150">
+  <!-- Balon Sepeti -->
+  <rect x="40" y="125" width="20" height="10" rx="2" fill="#8a6e57" />
+  <rect x="42" y="123" width="16" height="2" rx="1" fill="#6b563f" />
+  
+  <!-- Balon İpleri -->
+  <path d="M43,125 C38,115 35,105 30,100" stroke="#8a6e57" stroke-width="1" fill="none" />
+  <path d="M50,125 C50,115 50,105 50,100" stroke="#8a6e57" stroke-width="1" fill="none" />
+  <path d="M57,125 C62,115 65,105 70,100" stroke="#8a6e57" stroke-width="1" fill="none" />
+  
+  <!-- Balon Gölgesi -->
+  <ellipse cx="50" cy="120" rx="30" ry="5" fill="rgba(0,0,0,0.05)" />
+  
+  <!-- Balon Ana Gövdesi - Daire Şeklinde -->
+  <circle cx="50" cy="60" r="40" fill="#7e57c2" />
+  
+  <!-- Alt Kısım Bağlantısı -->
+  <path d="M30,95 C35,105 65,105 70,95" fill="#7e57c2" />
+  
+  <!-- Detaylar ve Parlaklık -->
+  <circle cx="40" cy="45" r="10" fill="#9575cd" opacity="0.4" />
+  
+  <!-- Üst Nokta -->
+  <circle cx="50" cy="20" r="3" fill="#5e35b1" />
+</svg> 
