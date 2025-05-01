@@ -63,10 +63,10 @@ export default function CategoryCard({ category }: CategoryCardProps) {
           />
         </div>
         
-        {/* Başlık alanı ve açıklama - Daha şeffaf ve modern yazı stili */}
+        {/* Başlık alanı ve açıklama - Başlık daha aşağıda */}
         <div className="absolute inset-x-0 bottom-0 z-20 p-4 pb-6">
-          <div className="mx-auto max-w-[85%] bg-white/45 backdrop-blur-md px-3 py-2.5 rounded-xl shadow-sm transform transition-transform duration-300 group-hover/card:translate-y-[-3px] group-focus-visible/card:translate-y-[-3px]">
-            <h3 className="font-display tracking-wide text-base text-center text-[#2a2a2a] line-clamp-2 font-semibold">
+          <div className="mx-auto max-w-[90%] sm:max-w-[85%] bg-white/45 backdrop-blur-md px-3 py-2.5 rounded-xl shadow-sm transform transition-transform duration-300 group-hover/card:translate-y-[-3px] group-focus-visible/card:translate-y-[-3px]">
+            <h3 className="font-display tracking-wide text-sm sm:text-base text-center text-[#2a2a2a] line-clamp-2 font-semibold min-h-[2.5rem] flex justify-center pt-1">
               {title}
             </h3>
             {description && (

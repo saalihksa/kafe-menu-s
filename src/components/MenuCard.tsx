@@ -79,19 +79,18 @@ const MenuCard: React.FC<MenuCardProps> = ({ item }) => {
               <span className="text-[#8a6e57] opacity-70 text-sm font-medium">Görsel Yok</span>
             </div>
           )}
-          
-          <div className="absolute bottom-2.5 right-2.5 z-10">
-            <div className="bg-[#8a6e57] text-white text-base font-bold px-3 py-1.5 rounded-lg shadow-lg">
-              {item.price} ₺
-            </div>
-          </div>
         </div>
 
         <div className="p-3 flex-1 flex flex-col justify-between min-h-[100px]">
           <div className="flex flex-col">
-            <h3 className="font-bold text-[#3d3d3d] font-display text-lg leading-tight mb-1.5 line-clamp-2">
-              {item.name}
-            </h3>
+            <div className="flex justify-between items-start mb-1.5 gap-2"> 
+              <h3 className="font-bold text-[#3d3d3d] font-display text-lg leading-tight line-clamp-2 flex-1"> 
+                {item.name}
+              </h3>
+              <span className="text-base font-bold text-[#8a6e57] whitespace-nowrap pt-0.5"> 
+                {item.price} ₺
+              </span>
+            </div>
             
             {item.description && (
               <p className="text-xs text-[#696969] line-clamp-2 mb-2">
@@ -175,9 +174,6 @@ const MenuCard: React.FC<MenuCardProps> = ({ item }) => {
                 <Dialog.Title className="text-3xl font-display font-bold text-[#3d3d3d]">
                   {item.name}
                 </Dialog.Title>
-                <div className="text-xl font-bold text-white bg-[#8a6e57] px-4 py-2 rounded-full shadow-md">
-                  {item.price} ₺
-                </div>
               </div>
 
               <Dialog.Description className="mt-3 text-[#696969] text-base">
