@@ -280,30 +280,28 @@ export default function MenuPage() {
               </div>
             </motion.div>
 
-            {/* Hızlı Erişim Filtre Butonları - geliştirilmiş */}
-            <motion.div 
-              className="flex flex-wrap justify-center gap-2.5 sm:gap-4 mb-10 sm:mb-12 px-1"
+            {/* Filtre Butonları - Eşit Genişlik, Büyütülmüş, Arası Açılmış */}
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.7 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex justify-center sm:justify-center flex-wrap gap-3 sm:gap-5 mb-10 sm:mb-12 relative z-10"
             >
               {filters.map((filter, index) => (
                 <motion.button
                   key={filter.value}
                   onClick={() => setSelectedFilter(filter.value)}
-                  className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 transform ${
+                  className={`flex-1 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 ease-in-out shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#a78a7f] text-center whitespace-nowrap ${
                     selectedFilter === filter.value
-                      ? 'bg-[#8a6e57] text-white scale-105 shadow-md border border-[#8a6e57]/20' 
-                      : 'bg-white/70 text-[#5f5f5f] hover:bg-white hover:text-[#3d3d3d] hover:scale-105 shadow-sm border border-white/10'
+                      ? 'bg-[#8a6e57] text-white shadow-lg scale-105'
+                      : 'bg-white/80 text-[#5c4d42] hover:bg-white'
                   }`}
                   aria-pressed={selectedFilter === filter.value}
+                  aria-label={`${filter.label} kategorilerini filtrele`}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.3, 
-                    delay: 0.8 + (index * 0.05)
-                  }}
-                  whileHover={{ y: -3 }}
+                  transition={{ duration: 0.2, delay: index * 0.05 }}
+                  whileHover={{ y: -2, boxShadow: "0 4px 15px rgba(0,0,0,0.1)" }}
                   whileTap={{ scale: 0.97 }}
                 >
                   {filter.label}

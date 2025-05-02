@@ -101,64 +101,22 @@ const MenuCardComponent: React.FC<MenuCardProps> = ({ item }) => {
         style={{ width: '100%', height: '100%' }}
         aria-label={`${item.name} detaylarını görüntüle`}
       >
-        {/* Görsel Alanı */}
-        <div className="aspect-square w-full relative overflow-hidden">
-          {item.image ? (
-            <>
-              {/* Yükleniyor Göstergesi */}
-              <div
-                className={`absolute inset-0 bg-gray-100 ${
-                  isImageLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                } transition-opacity duration-500 z-0 flex items-center justify-center`}
-              >
-                <svg className="animate-spin h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-              </div>
-              {/* Gerçek Görsel */}
-              <div className="h-full w-full z-10">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                  className={`object-cover transition-opacity duration-500 ease-in-out ${
-                    isImageLoaded ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  onLoad={handleImageLoad}
-                  priority={false}
-                  quality={60} // Görsel kalitesi daha da düşürüldü
-                />
-              </div>
-              {/* Hover Efekti */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
-                <FaExpandAlt className="text-white text-3xl drop-shadow-lg" />
-              </div>
-              {/* Popüler Etiketi */}
-              {item.isPopular && (
-                <div className="absolute top-2 left-2 z-30 bg-gradient-to-r from-red-500 to-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg flex items-center">
-                  <FaHeart className="h-2.5 w-2.5 mr-1" />
-                  Popüler
-                </div>
-              )}
-            </>
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-[#e0d8c4]/70 to-[#f0eadf]/70 flex items-center justify-center border-b border-gray-200/50">
-              <span className="text-[#8a6e57]/70 text-xs font-medium">Görsel Mevcut Değil</span>
-            </div>
-          )}
+        {/* Görsel Alanı - Geçici Placeholder */}
+        <div className="aspect-square w-full relative overflow-hidden bg-gray-200 flex items-center justify-center border-b border-gray-300">
+          {/* Removed image rendering logic and loading state */}
+          {/* Added placeholder text */}
+          <span className="text-gray-500 text-sm font-medium">FOTOĞRAF ALANI</span>
         </div>
 
         {/* İçerik Alanı */}
-        <div className="p-4 flex-1 flex flex-col justify-between">
+        <div className="p-3 sm:p-4 flex-1 flex flex-col justify-between">
           <div className="flex flex-col mb-3">
             {/* Başlık ve Fiyat */}
-            <div className="flex justify-between items-start mb-1.5 gap-3"> 
-              <h3 className="font-semibold text-gray-800 font-sans text-[17px] leading-tight line-clamp-2 flex-1 group-hover/card:text-[#6b563f] transition-colors duration-200">
+            <div className="flex justify-between items-start mb-1.5 gap-2 sm:gap-3">
+              <h3 className="font-semibold text-gray-800 font-sans text-[15px] sm:text-[17px] leading-tight line-clamp-2 flex-1 group-hover/card:text-[#6b563f] transition-colors duration-200">
                 {item.name}
               </h3>
-              <span className="text-lg font-bold text-[#7c6a55] whitespace-nowrap font-sans pt-0.5">
+              <span className="text-base sm:text-lg font-bold text-[#6b563f] whitespace-nowrap font-sans pt-0.5">
                 {item.price}<span className="text-xs font-medium"> ₺</span>
               </span>
             </div>

@@ -70,18 +70,14 @@ export default function CategoryCard({ category }: CategoryCardProps) {
           </div>
         </div>
         
-        {/* Başlık alanı - Metin aşağı hizalandı */}
-        <div className="absolute inset-x-0 bottom-[-5px] z-20 p-4 pb-6">
-          <div className="flex flex-col justify-end items-center mx-auto max-w-[95%] sm:max-w-[90%] backdrop-blur-sm px-3 sm:px-4 pt-4 pb-2 rounded-xl shadow-lg border border-white/10 transform transition-transform duration-300 group-hover/card:translate-y-[-3px] group-focus-visible/card:translate-y-[-3px] min-h-[4rem]">
-            <h3 className="category-title font-display tracking-wide font-bold text-center text-white w-full text-shadow">
-              {title}
-            </h3>
-            {description && (
-              <p className="text-xs text-white/80 text-center mt-0.5 line-clamp-1 opacity-0 group-hover/card:opacity-100 group-focus-visible/card:opacity-100 transition-opacity duration-300">
-                {description}
-              </p>
-            )}
-          </div>
+        {/* Başlık alanı - Ortalanmış ve belirginleştirilmiş */}
+        <div className="absolute inset-0 z-20 flex items-center justify-center p-4 text-center">
+          <h3 
+            className="category-title font-display tracking-wide font-bold text-white w-full text-xl sm:text-2xl md:text-3xl" 
+            style={{ textShadow: '0px 2px 5px rgba(0, 0, 0, 0.7)' }}
+          >
+            {title}
+          </h3>
         </div>
       </motion.div>
     </Link>
