@@ -46,13 +46,22 @@ export default function Footer() {
             <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
               {socialLinks.map((link, index) => {
                  const IconComponent = link.icon;
+                 // Determine background gradient based on social network
+                 let bgGradient = 'bg-[var(--accent)] hover:bg-primary'; // Default
+                 if (link.name === 'Instagram') {
+                   bgGradient = 'bg-gradient-to-br from-yellow-400 via-red-500 to-pink-500 hover:brightness-110';
+                 } else if (link.name === 'Facebook') {
+                   bgGradient = 'bg-gradient-to-br from-blue-600 to-blue-800 hover:brightness-110';
+                 }
+
                  return (
                    <motion.a 
                      key={index} 
                      href={link.url}
                      target="_blank"
                      rel="noopener noreferrer"
-                     className="h-10 w-10 rounded-full bg-[var(--accent)] hover:bg-primary transition-all duration-300 flex items-center justify-center text-white shadow-md hover:shadow-lg hover:-translate-y-1"
+                     // Apply dynamic background gradient
+                     className={`h-10 w-10 rounded-full ${bgGradient} transition-all duration-300 flex items-center justify-center text-white shadow-md hover:shadow-lg hover:-translate-y-1`}
                      aria-label={link.name}
                      whileHover={{ scale: 1.05 }}
                      whileTap={{ scale: 0.95 }}
