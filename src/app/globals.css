@@ -1,5 +1,5 @@
-/* Font Awesome İkonları */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+/* Font Awesome İkonları - Kaldırıldı, react-icons kullanılacak */
+/* @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'); */
 @import "tailwindcss";
 
 :root {
@@ -221,153 +221,113 @@ html, body {
   }
 }
 
+/* Yeni: Aşağıdan Yukarıya Balon Animasyonu */
+@keyframes float-up {
+  0% {
+    transform: translateY(110vh); /* Ekranın altından başla */
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1; /* Ortada görünür olsun */
+  }
+  100% {
+    transform: translateY(-110vh); /* Ekranın üstünden çıksın */
+    opacity: 0;
+  }
+}
+
+/* Yeni: Başlangıçta Görünür Balon Animasyonu */
+@keyframes float-up-visible {
+  0% {
+    transform: translateY(0); /* Mevcut konumdan başla */
+    opacity: 1; /* Görünür başla */
+  }
+  100% {
+    transform: translateY(-150vh); /* Daha yukarı çıksın (süreyi dengelemek için) */
+    opacity: 0;
+  }
+}
+
 @layer utilities {
   .animate-subtle-zoom {
     animation: subtle-zoom 15s ease-in-out infinite alternate;
   }
-}
 
-/* Sıcak Hava Balonu Animasyonları */
-@keyframes float-slow {
-  0% {
-    transform: translateY(0) translateX(0);
+  /* Aşağıdan Başlayan Animasyonlar */
+  .animate-float-up-1 {
+    animation: float-up 25s linear infinite;
+    animation-delay: 0s;
   }
-  50% {
-    transform: translateY(-15px) translateX(5px);
+  .animate-float-up-2 {
+    animation: float-up 35s linear infinite;
+    animation-delay: 5s;
   }
-  100% {
-    transform: translateY(0) translateX(0);
+  .animate-float-up-3 {
+    animation: float-up 45s linear infinite;
+    animation-delay: 10s;
   }
-}
+  .animate-float-up-4 {
+    animation: float-up 30s linear infinite;
+    animation-delay: 15s;
+  }
+  .animate-float-up-5 {
+    animation: float-up 40s linear infinite;
+    animation-delay: 20s;
+  }
+  .animate-float-up-6 {
+    animation: float-up 50s linear infinite;
+    animation-delay: 25s;
+  }
+  .animate-float-up-7 {
+    animation: float-up 28s linear infinite;
+    animation-delay: 3s;
+  }
+  .animate-float-up-8 {
+    animation: float-up 38s linear infinite;
+    animation-delay: 8s;
+  }
+  .animate-float-up-9 {
+    animation: float-up 48s linear infinite;
+    animation-delay: 13s;
+  }
+  .animate-float-up-10 {
+    animation: float-up 33s linear infinite;
+    animation-delay: 18s;
+  }
 
-@keyframes float-medium {
-  0% {
-    transform: translateY(0) translateX(0);
+  /* Başlangıçta Görünür Animasyonlar */
+  .animate-float-up-visible-1 {
+    animation: float-up-visible 30s linear infinite;
+    animation-delay: 0s;
   }
-  50% {
-    transform: translateY(-10px) translateX(-5px);
+  .animate-float-up-visible-2 {
+    animation: float-up-visible 40s linear infinite;
+    animation-delay: 2s;
   }
-  100% {
-    transform: translateY(0) translateX(0);
+  .animate-float-up-visible-3 {
+    animation: float-up-visible 50s linear infinite;
+    animation-delay: 4s;
   }
-}
-
-@keyframes float-fast {
-  0% {
-    transform: translateY(0) translateX(0);
+   .animate-float-up-visible-4 {
+    animation: float-up-visible 35s linear infinite;
+    animation-delay: 6s;
   }
-  50% {
-    transform: translateY(-8px) translateX(3px);
+  .animate-float-up-visible-5 {
+    animation: float-up-visible 45s linear infinite;
+    animation-delay: 8s;
   }
-  100% {
-    transform: translateY(0) translateX(0);
+   .animate-float-up-visible-6 {
+    animation: float-up-visible 55s linear infinite;
+    animation-delay: 10s;
   }
-}
-
-.animate-float-slow {
-  animation: float-slow 8s ease-in-out infinite;
-}
-
-.animate-float-medium {
-  animation: float-medium 6s ease-in-out infinite;
-}
-
-.animate-float-fast {
-  animation: float-fast 4s ease-in-out infinite;
-}
-
-/* Opacity değerleri için ek sınıflar */
-.opacity-10 {
-  opacity: 0.1;
-}
-
-.opacity-15 {
-  opacity: 0.15;
-}
-
-.opacity-20 {
-  opacity: 0.2;
-}
-
-/* Balonlar için gelişmiş animasyonlar */
-@keyframes float-diagonal-slow {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
+   .animate-float-up-visible-7 {
+    animation: float-up-visible 32s linear infinite;
+    animation-delay: 12s;
   }
-  33% {
-    transform: translateY(-20px) translateX(10px) rotate(1deg);
+   .animate-float-up-visible-8 {
+    animation: float-up-visible 42s linear infinite;
+    animation-delay: 14s;
   }
-  66% {
-    transform: translateY(-10px) translateX(-15px) rotate(-1deg);
-  }
-  100% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-}
-
-@keyframes float-zigzag {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-12px) translateX(8px) rotate(1deg);
-  }
-  50% {
-    transform: translateY(-20px) translateX(-3px) rotate(-1deg);
-  }
-  75% {
-    transform: translateY(-8px) translateX(-10px) rotate(0.5deg);
-  }
-  100% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-}
-
-@keyframes float-circle {
-  0% {
-    transform: translateY(0) translateX(0);
-  }
-  25% {
-    transform: translateY(-10px) translateX(10px);
-  }
-  50% {
-    transform: translateY(0) translateX(15px);
-  }
-  75% {
-    transform: translateY(10px) translateX(5px);
-  }
-  100% {
-    transform: translateY(0) translateX(0);
-  }
-}
-
-.animate-float-diagonal {
-  animation: float-diagonal-slow 12s ease-in-out infinite;
-}
-
-.animate-float-zigzag {
-  animation: float-zigzag 10s ease-in-out infinite;
-}
-
-.animate-float-circle {
-  animation: float-circle 15s ease-in-out infinite;
-}
-
-/* Opacity için daha fazla seçenek */
-.opacity-25 {
-  opacity: 0.25;
-}
-
-.opacity-30 {
-  opacity: 0.3;
-}
-
-.opacity-35 {
-  opacity: 0.35;
-}
-
-.opacity-40 {
-  opacity: 0.4;
 }
 
 /* Yazı gölgesi sınıfları */
@@ -403,3 +363,4 @@ html, body {
     line-height: 1.5rem;
   }
 }
+

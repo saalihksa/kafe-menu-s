@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaInstagram, FaFacebookF, FaTwitter, FaTripadvisor } from 'react-icons/fa';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,10 +15,10 @@ export default function Footer() {
   };
   
   const socialLinks = [
-    { name: 'Instagram', icon: 'fab fa-instagram', url: 'https://www.instagram.com/cappadociacoffeebakery/?hl=en' },
-    { name: 'Facebook', icon: 'fab fa-facebook-f', url: 'https://www.facebook.com/cappadociacoffee/' },
-    { name: 'Twitter', icon: 'fab fa-twitter', url: '#' },
-    { name: 'TripAdvisor', icon: 'fab fa-tripadvisor', url: '#' },
+    { name: 'Instagram', icon: FaInstagram, url: 'https://www.instagram.com/cappadociacoffeebakery/?hl=en' },
+    { name: 'Facebook', icon: FaFacebookF, url: 'https://www.facebook.com/cappadociacoffee/' },
+    // { name: 'Twitter', icon: FaTwitter, url: '#' },
+    // { name: 'TripAdvisor', icon: FaTripadvisor, url: '#' },
   ];
   
   return (
@@ -27,7 +28,7 @@ export default function Footer() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          {/* Logo ve Bilgi */}
+          {/* Logo ve Bilgi - Cappadocia Coffee yazısı kaldırıldı */}
           <motion.div 
             className="md:col-span-4 flex flex-col items-center md:items-start"
             initial="hidden"
@@ -35,27 +36,31 @@ export default function Footer() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <div className="mb-4 bg-white/10 backdrop-blur-sm p-4 rounded-xl shadow-sm">
+            {/* Cappadocia Coffee yazısı kaldırıldı */}
+            {/* <div className="mb-4 bg-white/10 backdrop-blur-sm p-4 rounded-xl shadow-sm">
               <span className="font-display text-2xl text-primary">Cappadocia Coffee</span>
-            </div>
+            </div> */}
             <p className="text-sm text-[var(--text-muted)] text-center md:text-left mb-6 bg-white/5 backdrop-blur-sm p-4 rounded-lg shadow-sm">
               Doğal malzemeler ve lezzetli seçenekler ile her gün saat 09:00 - 01:00 arasında kaliteli hizmet anlayışımızla hizmetinizdeyiz.
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
-              {socialLinks.map((link, index) => (
-                <motion.a 
-                  key={index} 
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-10 w-10 rounded-full bg-[var(--accent)] hover:bg-primary transition-all duration-300 flex items-center justify-center text-white shadow-md hover:shadow-lg hover:-translate-y-1"
-                  aria-label={link.name}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <i className={link.icon}></i>
-                </motion.a>
-              ))}
+              {socialLinks.map((link, index) => {
+                 const IconComponent = link.icon;
+                 return (
+                   <motion.a 
+                     key={index} 
+                     href={link.url}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="h-10 w-10 rounded-full bg-[var(--accent)] hover:bg-primary transition-all duration-300 flex items-center justify-center text-white shadow-md hover:shadow-lg hover:-translate-y-1"
+                     aria-label={link.name}
+                     whileHover={{ scale: 1.05 }}
+                     whileTap={{ scale: 0.95 }}
+                   >
+                     <IconComponent className="h-5 w-5" />
+                   </motion.a>
+                 );
+              })}
             </div>
           </motion.div>
           
@@ -103,20 +108,7 @@ export default function Footer() {
               </div>
               </motion.div>
               
-              <motion.div 
-                className="flex items-start bg-white/10 p-3 rounded-lg shadow-sm hover:bg-white/20 transition-all duration-300"
-                whileHover={{ x: 3 }}
-              >
-                <div className="h-10 w-10 rounded-full bg-[var(--accent-light)] flex items-center justify-center mr-4 flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                </div>
-                <div>
-                  <p className="font-medium text-primary">E-Posta</p>
-                  <p className="mt-1">info@cappadociacoffee.com</p>
-              </div>
-              </motion.div>
+              
             </address>
           </motion.div>
           
@@ -154,19 +146,19 @@ export default function Footer() {
           transition={{ delay: 0.3 }}
         >
           <p className="text-sm text-[var(--text-muted)]">
-            © {currentYear} Cappadocia Coffee & Bakery. Tüm hakları saklıdır.
+            © {currentYear} Piston Creative. Tüm hakları saklıdır.
           </p>
           
-          {/* Piston Creative Yazısı - Stilize edilmiş logo görünümünde */}
+          {/* Piston Creative Yazısı yerine Piston Logo */}
           <div className="mt-4">
             <a href="https://www.pistoncreative.com/" target="_blank" rel="noopener noreferrer" className="inline-block">
-              <div className="flex flex-col items-center py-2 px-3">
-                <div className="flex items-center">
-                  <span className="text-[#333333] text-xl font-bold tracking-wide">pist</span>
-                  <span className="text-[#b1ca3e] text-xl font-bold tracking-wide">on</span>
-                </div>
-                <span className="text-[#666666] text-xs tracking-widest mt-0">c r e a t i v e</span>
-              </div>
+              <Image
+                src="/images/piston-logo.png"
+                alt="Piston Creative Logo"
+                width={120} // Logonuzun boyutuna göre ayarlayın
+                height={30} // Logonuzun boyutuna göre ayarlayın
+                className="object-contain"
+              />
             </a>
           </div>
         </motion.div>

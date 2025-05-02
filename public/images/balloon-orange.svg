@@ -13,14 +13,14 @@
   <ellipse cx="50" cy="120" rx="30" ry="5" fill="rgba(0,0,0,0.05)" />
   
   <!-- Balon Ana Gövdesi - Daire Şeklinde -->
-  <circle cx="50" cy="60" r="40" fill="#e67e22" />
+  <circle cx="50" cy="60" r="40" fill="#d4ac3d" />
   
   <!-- Alt Kısım Bağlantısı -->
-  <path d="M30,95 C35,105 65,105 70,95" fill="#e67e22" />
+  <path d="M30,95 C35,105 65,105 70,95" fill="#d4ac3d" />
   
   <!-- Detaylar ve Parlaklık -->
-  <circle cx="40" cy="45" r="10" fill="#f39c12" opacity="0.4" />
+  <circle cx="40" cy="45" r="10" fill="#e0c16e" opacity="0.4" />
   
   <!-- Üst Nokta -->
-  <circle cx="50" cy="20" r="3" fill="#d35400" />
+  <circle cx="50" cy="20" r="3" fill="#b58e2d" />
 </svg> 

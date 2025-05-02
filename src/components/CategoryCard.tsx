@@ -70,14 +70,14 @@ export default function CategoryCard({ category }: CategoryCardProps) {
           </div>
         </div>
         
-        {/* Başlık alanı - Beyaz yazı, satır kısıtlaması kaldırıldı */}
+        {/* Başlık alanı - Metin aşağı hizalandı */}
         <div className="absolute inset-x-0 bottom-[-5px] z-20 p-4 pb-6">
-          <div className="mx-auto max-w-[95%] sm:max-w-[90%] bg-black/30 backdrop-blur-sm px-3 sm:px-4 py-3 rounded-xl shadow-lg border border-white/10 transform transition-transform duration-300 group-hover/card:translate-y-[-3px] group-focus-visible/card:translate-y-[-3px]">
-            <h3 className="category-title font-display tracking-wide font-bold text-center text-white min-h-[2.5rem] flex justify-center items-center text-shadow">
+          <div className="flex flex-col justify-end items-center mx-auto max-w-[95%] sm:max-w-[90%] backdrop-blur-sm px-3 sm:px-4 pt-4 pb-2 rounded-xl shadow-lg border border-white/10 transform transition-transform duration-300 group-hover/card:translate-y-[-3px] group-focus-visible/card:translate-y-[-3px] min-h-[4rem]">
+            <h3 className="category-title font-display tracking-wide font-bold text-center text-white w-full text-shadow">
               {title}
             </h3>
             {description && (
-              <p className="text-xs sm:text-sm text-white/80 text-center mt-1 line-clamp-1 opacity-0 group-hover/card:opacity-100 group-focus-visible/card:opacity-100 transition-opacity duration-300">
+              <p className="text-xs text-white/80 text-center mt-0.5 line-clamp-1 opacity-0 group-hover/card:opacity-100 group-focus-visible/card:opacity-100 transition-opacity duration-300">
                 {description}
               </p>
             )}

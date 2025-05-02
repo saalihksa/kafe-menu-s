@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { usePathname } from 'next/navigation';
+import { FaInstagram, FaFacebookF } from 'react-icons/fa';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,8 +28,21 @@ export default function Navbar() {
 
   // Mobil menü için animasyon varyantları (sağdan açılma)
   const sidebarVariants = {
-    closed: { x: "100%", opacity: 0 }, // Sağa gitmesi için x: "100%"
-    open: { x: 0, opacity: 1 },
+    closed: { x: "100%", opacity: 0 },
+    open: { 
+      x: 0, 
+      opacity: 1, 
+      transition: { 
+        type: "spring", 
+        stiffness: 300,
+        damping: 30,
+      }
+    },
+  };
+  
+  const linkVariants = {
+    closed: { opacity: 0, x: 20 },
+    open: { opacity: 1, x: 0 }
   };
 
   return (
@@ -43,10 +58,18 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             {/* Logo Alanı */}
-            <div className="flex items-center">
+            <div className="flex items-center relative z-10">
               <Link href="/" className="flex-shrink-0 flex items-center">
-                <div className={`transition-all duration-300 py-2 px-4 rounded-lg ${isHomePage && !scrolled ? 'opacity-70 hover:opacity-100 bg-white/20 backdrop-blur-sm' : 'opacity-85 hover:opacity-100 bg-white/30 backdrop-blur-sm'}`}>
-                  <span className="font-display text-xl text-primary">Logo Alanı</span>
+                <div className={`transition-all duration-300 rounded-lg ${isHomePage && !scrolled ? 'bg-transparent' : 'bg-transparent'}`}>
+                  <Image 
+                    src="/images/cappadocia-logo.png" 
+                    alt="Cappadocia Coffee & Bakery" 
+                    width={300}
+                    height={75}
+                    className="object-contain w-auto"
+                    priority
+                    style={{ height: 'auto' }}
+                  />
                 </div>
               </Link>
             </div>
@@ -97,49 +120,68 @@ export default function Navbar() {
         />
       )}
 
-      {/* Mobil Menü (Sağdan Açılır ve En Saydam) */}
+      {/* Mobil Menü (Sağdan Açılır ve Geliştirilmiş Stil) */}
       <motion.div
         id="mobile-menu"
-        className="fixed top-0 right-0 h-screen w-64 bg-[#e7e1d4]/45 backdrop-blur-lg shadow-lg z-50 md:hidden overflow-y-auto" // Opaklık /60 -> /45 yapıldı
+        className="fixed top-0 right-0 h-dvh w-72 bg-gradient-to-b from-[#e7e1d4]/80 to-[#d6cab1]/85 backdrop-blur-lg shadow-2xl z-50 md:hidden flex flex-col"
         initial="closed"
         animate={isOpen ? "open" : "closed"}
         variants={sidebarVariants}
-        transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        <div className="p-5 relative h-full">
-          {/* Menü Kapatma Butonu (Sol üst) */}
+        <div className="flex justify-between items-center p-5 border-b border-[var(--border)]/50">
+          <Link href="/" onClick={() => setIsOpen(false)} className="block">
+            <Image
+              src="/images/cappadoca-full-logo.png"
+              alt="Cappadocia Coffee & Bakery Logo"
+              width={150}
+              height={45}
+              className="object-contain"
+            />
+          </Link>
           <button 
              onClick={() => setIsOpen(false)}
-             className="absolute top-4 left-4 p-1 rounded-md text-primary hover:text-accent focus:outline-none"
+             className="p-1 rounded-md text-primary/70 hover:text-accent hover:bg-black/5 focus:outline-none"
              aria-label="Menüyü Kapat"
            >
              <HiX className="h-6 w-6" />
            </button>
-          
-          <div className="mt-12 space-y-2">
+        </div>
+        
+        <motion.div 
+          className="flex-grow p-5 space-y-2"
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          transition={{ staggerChildren: 0.05, delayChildren: 0.1 }}
+        >
+          <motion.div variants={linkVariants} whileHover={{ scale: 1.03 }} transition={{ duration: 0.1 }}>
             <Link 
-              href="/" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-primary hover:text-accent hover:bg-accent-light transition-colors"
+              href="/"
+              className="block px-4 py-3 rounded-lg text-lg font-medium text-primary hover:text-accent hover:bg-[var(--accent-light)]/50 transition-all duration-200"
               onClick={() => setIsOpen(false)}
             >
               Ana Sayfa
             </Link>
+          </motion.div>
+          <motion.div variants={linkVariants} whileHover={{ scale: 1.03 }} transition={{ duration: 0.1 }}>
             <Link 
               href="/menu" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-primary hover:text-accent hover:bg-accent-light transition-colors"
+              className="block px-4 py-3 rounded-lg text-lg font-medium text-primary hover:text-accent hover:bg-[var(--accent-light)]/50 transition-all duration-200"
               onClick={() => setIsOpen(false)}
             >
               Menü
             </Link>
+          </motion.div>
+          <motion.div variants={linkVariants} whileHover={{ scale: 1.03 }} transition={{ duration: 0.1 }}>
             <Link 
               href="/about" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-primary hover:text-accent hover:bg-accent-light transition-colors"
+              className="block px-4 py-3 rounded-lg text-lg font-medium text-primary hover:text-accent hover:bg-[var(--accent-light)]/50 transition-all duration-200"
               onClick={() => setIsOpen(false)}
             >
               Hakkımızda
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </motion.div>
     </>
   );

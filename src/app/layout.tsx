@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { FaInstagram } from 'react-icons/fa';
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -84,7 +85,7 @@ export default function RootLayout({
           aria-label="Instagram"
           className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-[var(--accent)] hover:bg-[var(--primary)] transition-colors duration-300 flex items-center justify-center text-white shadow-lg hover:scale-110 transform transition-transform"
         >
-          <i className="fab fa-instagram text-2xl"></i>
+          <FaInstagram className="text-2xl" />
         </a>
       </body>
     </html>
