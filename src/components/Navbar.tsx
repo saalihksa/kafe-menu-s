@@ -156,7 +156,7 @@ export default function Navbar() {
         >
           <motion.div variants={linkVariants} whileHover={{ scale: 1.03 }} transition={{ duration: 0.1 }}>
             <Link 
-              href="/"
+              href="/" 
               className="block px-4 py-3 rounded-lg text-lg font-medium text-primary hover:text-accent hover:bg-[var(--accent-light)]/50 transition-all duration-200"
               onClick={() => setIsOpen(false)}
             >

@@ -76,8 +76,8 @@ export default function CategoryCard({ category }: CategoryCardProps) {
             className="category-title font-display tracking-wide font-bold text-white w-full text-xl sm:text-2xl md:text-3xl" 
             style={{ textShadow: '0px 2px 5px rgba(0, 0, 0, 0.7)' }}
           >
-            {title}
-          </h3>
+              {title}
+            </h3>
         </div>
       </motion.div>
     </Link>

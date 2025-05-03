@@ -269,7 +269,7 @@ html, body {
   .animate-float-up-4 {
     animation: float-up 30s linear infinite;
     animation-delay: 15s;
-  }
+}
   .animate-float-up-5 {
     animation: float-up 40s linear infinite;
     animation-delay: 20s;
@@ -323,7 +323,7 @@ html, body {
    .animate-float-up-visible-7 {
     animation: float-up-visible 32s linear infinite;
     animation-delay: 12s;
-  }
+}
    .animate-float-up-visible-8 {
     animation: float-up-visible 42s linear infinite;
     animation-delay: 14s;

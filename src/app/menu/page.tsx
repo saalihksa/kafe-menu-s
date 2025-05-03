@@ -241,7 +241,7 @@ export default function MenuPage() {
                     letterSpacing: "-0.01em",
                   }}
                 >
-                  Menü Kategorilerimiz
+                Menü Kategorilerimiz
                 </motion.h2>
                 
                 {/* Ayırıcı Çizgi - Daha stilize */}
@@ -261,7 +261,7 @@ export default function MenuPage() {
                 </div>
                 
                 {/* Dekoratif vurgu - Konum ve stil ayarlandı */}
-                <motion.div
+                <motion.div 
                   className="absolute w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full bg-[#8a6e57]/5 opacity-10 blur-3xl -z-10"
                   style={{ 
                     top: "calc(50% - 40px)", 
@@ -281,7 +281,7 @@ export default function MenuPage() {
             </motion.div>
 
             {/* Filtre Butonları - Eşit Genişlik, Büyütülmüş, Arası Açılmış */}
-            <motion.div
+            <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}

@@ -55,19 +55,19 @@ export default function Footer() {
                  }
 
                  return (
-                   <motion.a 
-                     key={index} 
-                     href={link.url}
-                     target="_blank"
-                     rel="noopener noreferrer"
+                <motion.a 
+                  key={index} 
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                      // Apply dynamic background gradient
                      className={`h-10 w-10 rounded-full ${bgGradient} transition-all duration-300 flex items-center justify-center text-white shadow-md hover:shadow-lg hover:-translate-y-1`}
-                     aria-label={link.name}
-                     whileHover={{ scale: 1.05 }}
-                     whileTap={{ scale: 0.95 }}
-                   >
+                  aria-label={link.name}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                      <IconComponent className="h-5 w-5" />
-                   </motion.a>
+                </motion.a>
                  );
               })}
             </div>
