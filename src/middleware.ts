@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 // ======== BAKIM MODU KONTROLÜ ========
 // Bakım modunu açmak için: MAINTENANCE_MODE = true
 // Bakım modunu kapatmak için: MAINTENANCE_MODE = false
-const MAINTENANCE_MODE = false;
+const MAINTENANCE_MODE = true;
 
 // Bakım modu aktif olsa bile erişime izin verilecek adresler
 // (örn: admin paneli, api istekleri, vb.)
