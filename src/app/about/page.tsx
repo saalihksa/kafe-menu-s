@@ -211,9 +211,15 @@ export default function AboutPage() {
             ></motion.div>
             <motion.p
               variants={fadeInUp}
-              className="text-white text-lg md:text-xl max-w-2xl mx-auto font-light tracking-wide"
+              className="text-white text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light tracking-wide mb-6"
             >
-              2018'den bu yana kahve tutkunlarına eşsiz deneyimler sunuyoruz
+              2018'den bu yana kahve tutkunlarına eşsiz deneyimler sunuyoruz. Tutkumuz, her bir fincanda ve her bir lokmada hissedilir.
+            </motion.p>
+            <motion.p
+              variants={fadeInUp}
+              className="text-white/80 text-sm sm:text-base max-w-xl mx-auto font-light tracking-wider"
+            >
+              Kaliteli malzemeler, özenli tarifler ve sıcacık bir atmosferle sizlerleyiz.
             </motion.p>
           </motion.div>
         </div>
@@ -225,7 +231,7 @@ export default function AboutPage() {
           
           {/* Hikayemiz Bölümü */}
           <motion.section 
-            className="mb-40"
+            className="mb-24"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -235,22 +241,17 @@ export default function AboutPage() {
               <div className="w-full md:w-1/2 order-2 md:order-1">
                 <div className="max-w-xl">
                   <span className="text-[#e9c46a] text-xs font-semibold tracking-[0.3em] uppercase mb-4 inline-block">Hikayemiz</span>
-                  <h2 className="text-5xl font-display font-bold text-[#2d2d2d] mb-10 leading-tight">
+                  <h2 className="text-5xl font-display font-bold text-[#2d2d2d] mb-4 leading-tight">
                     Her fincanda <br /><span className="text-[#5f5f5f]">bir hikaye</span>
                   </h2>
+                  <p className="italic text-gray-600 mb-10 text-lg">Bir tutkunun ve özenin eseri...</p>
                   
                   <div className="space-y-6 text-[#4d4d4d] mb-12 text-lg">
-                    <p className="leading-relaxed">
-                      Cappadocia Coffee & Bakery, 2018 yılında İstanbul'un Üsküdar semtinde küçük bir düşle kuruldu. 
-                      Amacımız, en kaliteli kahve çekirdeklerini kullanarak, geleneksel tatları modern sunumlarla buluşturarak
-                      ve misafirlerimize sıcak bir atmosfer sunarak zamansız bir kafe deneyimi yaratmaktı.
+                    <p className="leading-relaxed tracking-normal">
+                      2018'de Üsküdar'da bir hayalle başlayan SandWita Sandwich & More, kaliteli malzemeler, modern sunumlar ve sıcak bir atmosferle eşsiz bir sandviç deneyimi sunmayı amaçladı. Her sandvicin bir hikaye anlatması, her lokmanın damaklarda iz bırakması temel ilkemiz oldu.
                     </p>
-                    <p className="leading-relaxed">
-                      Yola çıkarken temel ilkemiz, her fincan kahvenin bir hikaye anlatması ve her lokmanın damaklarda eşsiz bir tat bırakmasıydı.
-                    </p>
-                    <p className="leading-relaxed">
-                      Bugün, özenle seçilmiş kahve çeşitlerimiz, günlük taze pişirilen hamur işlerimiz ve 
-                      samimi ortamımızla bölgenin en sevilen buluşma noktalarından biri haline geldik.
+                    <p className="leading-relaxed tracking-normal">
+                      Bugün, özenle seçilmiş kahvelerimiz, taptaze lezzetlerimiz ve samimi ortamımızla bölgenin sevilen buluşma noktasıyız.
                     </p>
                   </div>
                 </div>
@@ -292,7 +293,7 @@ export default function AboutPage() {
           
           {/* Müşteri Memnuniyeti Sayacı Bölümü - İstatistikler tek satıra alındı */}
           <motion.section 
-            className="mb-32"
+            className="mb-24"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -361,7 +362,7 @@ export default function AboutPage() {
           
           {/* Misafir Görüşleri Bölümü */}
           <motion.section
-            className="mb-40"
+            className="mb-24"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -453,7 +454,7 @@ export default function AboutPage() {
                         </div>
                         <div>
                           <h4 className="text-lg font-medium text-[#2d2d2d] mb-2">Adresimiz</h4>
-                          <p className="text-[#555] leading-relaxed">Aziz Mahmut Hüdayi, Uncular Cd. No:7/A, 34672 Üsküdar/İstanbul</p>
+                          <p className="text-[#555] leading-relaxed">Aziz Mahmud Hüdai Mah. Uncular Cad, Azat Ykş. No:3, 34000 Üsküdar/İstanbul</p>
                         </div>
                       </div>
                       
@@ -510,8 +511,8 @@ export default function AboutPage() {
                           </svg>
                         </div>
                         <div>
-                          <h4 className="text-lg font-medium text-[#2d2d2d]">Cappadocia Coffee & Bakery</h4>
-                          <p className="text-[#555] text-sm">Aziz Mahmut Hüdayi, Uncular Cd. No:7/A, 34672 Üsküdar/İstanbul</p>
+                          <h4 className="text-lg font-medium text-[#2d2d2d]">Sandwita</h4>
+                          <p className="text-[#555] text-sm">Aziz Mahmud Hüdai Mah. Uncular Cad, Azat Ykş. No:3, 34000 Üsküdar/İstanbul</p>
                         </div>
                       </div>
                     </div>
@@ -519,7 +520,7 @@ export default function AboutPage() {
                     {/* Yol tarifi butonu */}
                     <div className="absolute top-20 right-4 z-20">
                       <a 
-                        href="https://maps.google.com/?q=Aziz+Mahmut+Hüdayi,+Uncular+Cd.+No:7/A,+34672+Üsküdar/İstanbul" 
+                        href="https://maps.google.com/?q=Aziz+Mahmud+Hüdai+Mah.+Uncular+Cad,+Azat+Ykş.+No:3,+34000+Üsküdar/İstanbul"
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="bg-white flex items-center px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-[#3d3d3d] font-medium text-sm"
@@ -533,7 +534,7 @@ export default function AboutPage() {
                     
                     {/* Google Maps iframe */}
                     <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.267932184878!2d29.01037347584465!3d41.023989917888366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9ee732c339b%3A0x1cc7eee99ee41bb8!2sAziz%20Mahmut%20H%C3%BCdayi%2C%20Uncular%20Cd.%20No%3A7%2C%2034672%20%C3%9Csk%C3%BCdar%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1699442149507!5m2!1str!2str" 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.267932184878!2d29.01037347584465!3d41.023989917888366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9ee732c339b%3A0x1cc7eee99ee41bb8!2sAziz%20Mahmud%20H%C3%BCdai%20Mah.%20Uncular%20Cad%2C%20Azat%20Yk%C5%9F.%20No%3A3%2C%2034000%20%C3%9Csk%C3%BCdar%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1699442149507!5m2!1str!2str" 
                       width="100%" 
                       height="450" 
                       className="border-0 relative z-10" 

@@ -3,19 +3,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #d6cab1;
-  --foreground: #3a3a3a;
-  --primary: #4a4a4a;
-  --primary-dark: #333333;
-  --accent: #b8a88a;
-  --accent-dark: #9a8a6c;
-  --accent-light: #e7e1d4;
-  --text-muted: #6e6e6e;
-  --border: #e5ded3;
-  --card-bg: #e7e1d4;
-  --section-bg: #d6cab1;
-  --section-alt: #e7e1d4;
-  --gradient-bg: linear-gradient(120deg, #d6cab1, #e7e1d4, #d6cab1);
+  --background: #f5f5f5; /* Beyaz */
+  --foreground: #5F1B1B; /* Yeni ana metin rengi */
+  --primary: #5F1B1B;    /* Yeni ana metin rengi (primary olarak da güncellendi) */
+  --primary-dark: #4a1414; /* Yeni ana metin renginin biraz daha koyu bir tonu */
+  --accent: #f5f5f5; /* Çok Açık Gri (Eski Bej #b8a88a) */
+  --accent-dark: #e0e0e0; /* Açık Gri (Eski Bej #9a8a6c) */
+  --accent-light: #ffffff; /* Beyaz (accent-light için de güncellendi) */
+  --text-muted: #7d5a5a; /* Yeni ana metne uygun soluk metin tonu */
+  --border: #eeeeee; /* Açık Gri (Eski Bej #e5ded3) */
+  --card-bg: #ffffff;    /* Beyaz (kart arka planı için de güncellendi) */
+  --section-bg: #f5f5f5; /* Beyaz (bölüm arka planı için de güncellendi) */
+  --section-alt: #f5f5f5;/* Beyaz (alternatif bölüm arka planı için de güncellendi) */
+  --gradient-bg: linear-gradient(120deg, #f5f5f5, #f0f0f0, #f5f5f5);
 }
 
 @theme inline {
@@ -54,19 +54,19 @@ body {
 /* Dark mode'u iptal ediyoruz, her zaman aynı bej tonları görünecek */
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground: #3a3a3a;
-    --background: #d6cab1;
-    --primary: #4a4a4a;
-    --primary-dark: #333333;
-    --accent: #b8a88a;
-    --accent-dark: #9a8a6c;
-    --accent-light: #e7e1d4;
-    --text-muted: #6e6e6e;
-    --section-bg: #d6cab1;
-    --section-alt: #e7e1d4;
-    --card-bg: #e7e1d4;
-    --border: #e5ded3;
-    --gradient-bg: linear-gradient(120deg, #d6cab1, #e7e1d4, #d6cab1);
+    --foreground: #5F1B1B; /* Yeni ana metin rengi */
+    --background: #f5f5f5; /* Beyaz */
+    --primary: #5F1B1B;    /* Yeni ana metin rengi */
+    --primary-dark: #4a1414;
+    --accent: #f5f5f5; /* Çok Açık Gri */
+    --accent-dark: #e0e0e0; /* Açık Gri */
+    --accent-light: #ffffff;
+    --text-muted: #7d5a5a;
+    --section-bg: #f5f5f5;
+    --section-alt: #f5f5f5;
+    --card-bg: #ffffff;
+    --border: #eeeeee; /* Açık Gri */
+    --gradient-bg: linear-gradient(120deg, #f5f5f5, #f0f0f0, #f5f5f5);
   }
 }
 
@@ -87,23 +87,23 @@ body {
   
   .menu-price {
     @apply font-semibold text-transparent bg-clip-text;
-    background-image: linear-gradient(to right, #b8a88a, #4a4a4a);
+    background-image: linear-gradient(to right, var(--primary-dark), #4a4a4a);
   }
   
   .badge-popular {
-    @apply bg-gradient-to-r from-[#b8a88a] to-[#4a4a4a] text-white;
+    @apply bg-gradient-to-r from-[var(--primary-dark)] to-[#4a4a4a] text-white;
   }
   
   .badge-vegetarian {
-    @apply bg-gradient-to-r from-[#b8a88a] to-[#4a4a4a] text-white;
+    @apply bg-gradient-to-r from-[var(--primary-dark)] to-[#4a4a4a] text-white;
   }
   
   .badge-vegan {
-    @apply bg-gradient-to-r from-[#b8a88a] to-[#4a4a4a] text-white;
+    @apply bg-gradient-to-r from-[var(--primary-dark)] to-[#4a4a4a] text-white;
   }
   
   .badge-glutenfree {
-    @apply bg-gradient-to-r from-[#b8a88a] to-[#4a4a4a] text-white;
+    @apply bg-gradient-to-r from-[var(--primary-dark)] to-[#4a4a4a] text-white;
   }
 }
 
@@ -221,22 +221,25 @@ html, body {
   }
 }
 
-/* Yeni: Aşağıdan Yukarıya Balon Animasyonu */
+/* Yeni: Aşağıdan Yukarıya Balon Animasyonu (Güncellendi) */
 @keyframes float-up {
   0% {
-    transform: translateY(110vh); /* Ekranın altından başla */
-    opacity: 0;
+    transform: translateY(0); /* Başlangıç konumu: Mevcut yer */
+    opacity: 0; /* Başlangıçta görünmez */
   }
-  10%, 90% {
-    opacity: 1; /* Ortada görünür olsun */
+  10% { /* Hızla görünür hale gel */
+    opacity: 1;
+  }
+   90% { /* Görünür kal */
+     opacity: 1;
   }
   100% {
-    transform: translateY(-110vh); /* Ekranın üstünden çıksın */
-    opacity: 0;
+    transform: translateY(-150vh); /* İyice yukarı taşı */
+    opacity: 0; /* Kaybol */
   }
 }
 
-/* Yeni: Başlangıçta Görünür Balon Animasyonu */
+/* Yeni: Başlangıçta Görünür Balon Animasyonu (Artık Kullanılmıyor olabilir, ama kalsın) */
 @keyframes float-up-visible {
   0% {
     transform: translateY(0); /* Mevcut konumdan başla */
@@ -253,7 +256,17 @@ html, body {
     animation: subtle-zoom 15s ease-in-out infinite alternate;
   }
 
-  /* Aşağıdan Başlayan Animasyonlar */
+  /* Temel Float Up Animasyonu */
+  .animate-float-up-base {
+    animation: float-up 30s linear infinite; /* Standart 30s süre */
+  }
+
+  /* Temel Float Up Animasyonu (Başlangıçta Görünür) */
+  .animate-float-up-visible-base {
+    animation: float-up-visible 30s linear infinite; /* Standart 30s süre */
+  }
+
+  /* Aşağıdan Başlayan Animasyonlar (Gecikmeli) */
   .animate-float-up-1 {
     animation: float-up 25s linear infinite;
     animation-delay: 0s;

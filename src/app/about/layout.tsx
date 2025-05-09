@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hakkımızda - Cappadocia Coffee & Bakery",
-  description: "Cappadocia Coffee & Bakery'nin hikayesi, misyonu ve vizyonu. Üsküdar'da kaliteli kahve ve tatlı deneyimi sunan mekanımızı tanıyın.",
-  keywords: "cappadocia coffee hakkında, üsküdar cafe, kahve dükkanı, cafe hikayesi, bakery üsküdar",
+  title: "Hakkımızda - SandWita Sandwich & More",
+  description: "SandWita Sandwich & More'un hikayesi, misyonu ve vizyonu. Üsküdar'da kaliteli sandviç ve tatlı deneyimi sunan mekanımızı tanıyın.",
+  keywords: "sandwita sandwich hakkında, üsküdar cafe, sandviç dükkanı, cafe hikayesi, bakery üsküdar",
   alternates: {
-    canonical: "https://www.cappadociacoffee.com/about",
+    canonical: "https://www.sandwita.com/about",
   },
   openGraph: {
-    title: "Hakkımızda - Cappadocia Coffee & Bakery",
-    description: "Cappadocia Coffee & Bakery'nin hikayesi, misyonu ve vizyonu. Kaliteli kahve ve tatlı deneyimi.",
-    url: "https://www.cappadociacoffee.com/about",
+    title: "Hakkımızda - SandWita Sandwich & More",
+    description: "SandWita Sandwich & More'un hikayesi, misyonu ve vizyonu. Kaliteli sandviç ve tatlı deneyimi.",
+    url: "https://www.sandwita.com/about",
     images: [
       {
-        url: "https://www.cappadociacoffee.com/images/about-og.jpg",
+        url: "https://www.sandwita.com/images/about-og.jpg",
         width: 1200,
         height: 630,
-        alt: "Cappadocia Coffee & Bakery Hakkında",
+        alt: "SandWita Sandwich & More Hakkında",
       }
     ],
   }

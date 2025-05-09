@@ -11,9 +11,9 @@ export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    "name": "Cappadocia Coffee & Bakery",
-    "image": "https://www.cappadociacoffee.com/images/og-image.jpg",
-    "url": "https://www.cappadociacoffee.com",
+    "name": "SandWita Sandwich & More",
+    "image": "https://www.sandwita.com/images/og-image.jpg",
+    "url": "https://www.sandwita.com",
     "telephone": "(0212) 123 45 67",
     "address": {
       "@type": "PostalAddress",
@@ -53,12 +53,12 @@ export default function Home() {
     ],
     "servesCuisine": ["Cafe", "Bakery", "Coffee"],
     "priceRange": "$$",
-    "menu": "https://www.cappadociacoffee.com/menu",
+    "menu": "https://www.sandwita.com/menu",
     "acceptsReservations": "True"
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#d6cab1]">
+    <div className="min-h-screen flex flex-col bg-[var(--background)]">
       <Script
         id="restaurant-jsonld"
         type="application/ld+json"

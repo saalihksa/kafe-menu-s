@@ -50,39 +50,29 @@ export default function Navbar() {
       {/* Ana Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-[#d6cab1]/95 backdrop-blur-md shadow-sm' 
+          ? 'bg-[var(--accent)]/95 backdrop-blur-md shadow-sm' 
           : isHomePage 
             ? 'bg-transparent' 
-            : 'bg-[#d6cab1]/75 backdrop-blur-sm'
+            : 'bg-[var(--accent)]/75 backdrop-blur-sm'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             {/* Logo Alanı */}
             <div className="flex items-center relative z-10">
               <Link href="/" className="flex-shrink-0 flex items-center">
-                <div className={`transition-all duration-300 rounded-lg ${isHomePage && !scrolled ? 'bg-transparent' : 'bg-transparent'}`}>
-                  <Image 
-                    src="/images/cappadocia-logo.png" 
-                    alt="Cappadocia Coffee & Bakery" 
-                    width={300}
-                    height={75}
-                    className="object-contain w-auto"
-                    priority
-                    style={{ height: 'auto' }}
-                  />
-                </div>
+                <div className="text-black font-bold text-xl px-2 py-1">Logo Alanı</div>
               </Link>
             </div>
             
             {/* Desktop menu */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="font-medium text-primary hover:text-accent transition-colors">
+              <Link href="/" className="font-medium text-black hover:text-[#1A1A1A] transition-colors">
                 Ana Sayfa
               </Link>
-              <Link href="/menu" className="font-medium text-primary hover:text-accent transition-colors">
+              <Link href="/menu" className="font-medium text-black hover:text-[#1A1A1A] transition-colors">
                 Menü
               </Link>
-              <Link href="/about" className="font-medium text-primary hover:text-accent transition-colors">
+              <Link href="/about" className="font-medium text-black hover:text-[#1A1A1A] transition-colors">
                 Hakkımızda
               </Link>
             </div>
@@ -91,7 +81,7 @@ export default function Navbar() {
             <div className="flex md:hidden items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-accent focus:outline-none"
+                className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-gray-700 focus:outline-none"
                 aria-expanded={isOpen}
                 aria-controls="mobile-menu"
                 aria-label={isOpen ? "Menüyü Kapat" : "Menüyü Aç"}
@@ -123,7 +113,7 @@ export default function Navbar() {
       {/* Mobil Menü (Sağdan Açılır ve Geliştirilmiş Stil) */}
       <motion.div
         id="mobile-menu"
-        className="fixed top-0 right-0 h-dvh w-72 bg-gradient-to-b from-[#e7e1d4]/80 to-[#d6cab1]/85 backdrop-blur-lg shadow-2xl z-50 md:hidden flex flex-col"
+        className="fixed top-0 right-0 h-dvh w-72 bg-gradient-to-b from-[var(--accent)]/80 to-[var(--accent)]/85 backdrop-blur-lg shadow-2xl z-50 md:hidden flex flex-col"
         initial="closed"
         animate={isOpen ? "open" : "closed"}
         variants={sidebarVariants}
@@ -131,17 +121,11 @@ export default function Navbar() {
       >
         <div className="flex justify-between items-center p-5 border-b border-[var(--border)]/50">
           <Link href="/" onClick={() => setIsOpen(false)} className="block">
-            <Image
-              src="/images/cappadoca-full-logo.png"
-              alt="Cappadocia Coffee & Bakery Logo"
-              width={150}
-              height={45}
-              className="object-contain"
-            />
+            <div className="text-black font-medium text-lg">Logo Alanı</div>
           </Link>
           <button 
              onClick={() => setIsOpen(false)}
-             className="p-1 rounded-md text-primary/70 hover:text-accent hover:bg-black/5 focus:outline-none"
+             className="p-1 rounded-md text-black/70 hover:text-gray-700 hover:bg-black/5 focus:outline-none"
              aria-label="Menüyü Kapat"
            >
              <HiX className="h-6 w-6" />
@@ -157,7 +141,7 @@ export default function Navbar() {
           <motion.div variants={linkVariants} whileHover={{ scale: 1.03 }} transition={{ duration: 0.1 }}>
             <Link 
               href="/" 
-              className="block px-4 py-3 rounded-lg text-lg font-medium text-primary hover:text-accent hover:bg-[var(--accent-light)]/50 transition-all duration-200"
+              className="block px-4 py-3 rounded-lg text-lg font-medium text-black hover:text-[#1A1A1A] hover:bg-[var(--accent-light)]/50 transition-all duration-200"
               onClick={() => setIsOpen(false)}
             >
               Ana Sayfa
@@ -166,7 +150,7 @@ export default function Navbar() {
           <motion.div variants={linkVariants} whileHover={{ scale: 1.03 }} transition={{ duration: 0.1 }}>
             <Link 
               href="/menu" 
-              className="block px-4 py-3 rounded-lg text-lg font-medium text-primary hover:text-accent hover:bg-[var(--accent-light)]/50 transition-all duration-200"
+              className="block px-4 py-3 rounded-lg text-lg font-medium text-black hover:text-[#1A1A1A] hover:bg-[var(--accent-light)]/50 transition-all duration-200"
               onClick={() => setIsOpen(false)}
             >
               Menü
@@ -175,7 +159,7 @@ export default function Navbar() {
           <motion.div variants={linkVariants} whileHover={{ scale: 1.03 }} transition={{ duration: 0.1 }}>
             <Link 
               href="/about" 
-              className="block px-4 py-3 rounded-lg text-lg font-medium text-primary hover:text-accent hover:bg-[var(--accent-light)]/50 transition-all duration-200"
+              className="block px-4 py-3 rounded-lg text-lg font-medium text-black hover:text-[#1A1A1A] hover:bg-[var(--accent-light)]/50 transition-all duration-200"
               onClick={() => setIsOpen(false)}
             >
               Hakkımızda

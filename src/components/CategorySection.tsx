@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { MenuCategory } from '@/data/menu';
 import MenuCard from './MenuCard';
+import Image from 'next/image';
 
 interface CategorySectionProps {
   category: MenuCategory;
@@ -36,6 +37,19 @@ export default function CategorySection({ category }: CategorySectionProps) {
           viewport={{ once: true, amount: 0.2 }}
           className="mb-8"
         >
+          {category.image && (
+            <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden">
+              <Image 
+                src={category.image} 
+                alt={category.name} 
+                fill 
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+          )}
+          
           <h2 className="text-3xl md:text-4xl font-display font-bold text-[var(--primary)] mb-2">
             {category.name}
           </h2>

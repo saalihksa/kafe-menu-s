@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.cappadociacoffee.com',
+  siteUrl: 'https://www.example.com',
   generateRobotsTxt: false, // robots.txt'yi zaten oluşturduk
   outDir: './public',
   generateIndexSitemap: false,
@@ -10,7 +10,7 @@ module.exports = {
   sitemapSize: 5000,
   alternateRefs: [
     {
-      href: 'https://www.cappadociacoffee.com',
+      href: 'https://www.example.com',
       hreflang: 'tr',
     },
   ],

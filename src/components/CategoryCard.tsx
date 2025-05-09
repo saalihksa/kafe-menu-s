@@ -5,14 +5,32 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Category } from '@/data/categories';
+import { LuCupSoda, LuCakeSlice, LuSandwich } from 'react-icons/lu';
 
 interface CategoryCardProps {
   category: Category;
 }
 
 export default function CategoryCard({ category }: CategoryCardProps) {
-  const { id, title, image, slug, description } = category;
+  const { id, title, image, slug, description, group } = category;
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  
+  let groupIcon: React.ReactNode | null = null;
+  let groupLabel = '';
+  switch (group) {
+    case 'icecekler':
+      groupIcon = <LuCupSoda className="w-3 h-3" />;
+      groupLabel = 'İçecek';
+      break;
+    case 'tatlilar':
+      groupIcon = <LuCakeSlice className="w-3 h-3" />;
+      groupLabel = 'Tatlı';
+      break;
+    case 'bakery':
+      groupIcon = <LuSandwich className="w-3 h-3" />;
+      groupLabel = 'Sandviç';
+      break;
+  }
   
   return (
     <Link
@@ -63,12 +81,13 @@ export default function CategoryCard({ category }: CategoryCardProps) {
           />
         </div>
         
-        {/* Kategori Etiketi - Küçük ve transparan */}
-        <div className="absolute bottom-[calc(100%-1.5rem)] right-2 z-20">
-          <div className="bg-[#8a6e57]/60 text-white text-[10px] font-medium px-2 py-0.5 rounded shadow-sm backdrop-blur-sm">
-            Kategori
+        {/* Sağ üst köşe etiketi - İkon ve Grup Adı ile Güncellendi */}
+        {groupIcon && (
+          <div className="absolute top-2.5 right-2.5 z-10 bg-[var(--primary)] text-white text-xs font-medium px-2 py-1 rounded-md shadow-sm flex items-center gap-1">
+            {groupIcon}
+            <span>{groupLabel}</span>
           </div>
-        </div>
+        )}
         
         {/* Başlık alanı - Ortalanmış ve belirginleştirilmiş */}
         <div className="absolute inset-0 z-20 flex items-center justify-center p-4 text-center">

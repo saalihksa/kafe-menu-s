@@ -66,7 +66,7 @@ export default function Hero() {
               <a 
                 href="/menu"
                 onClick={handleNavigateToMenu}
-                className="rounded-full bg-[var(--accent)] text-white font-medium px-10 py-4 text-lg shadow-lg hover:bg-[var(--primary)] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 inline-flex items-center space-x-3"
+                className="rounded-full bg-[var(--primary)] text-white font-medium px-10 py-4 text-lg shadow-lg hover:brightness-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 inline-flex items-center space-x-3"
               >
                 <span>Menüyü İncele</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">

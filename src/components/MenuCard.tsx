@@ -23,6 +23,7 @@ interface MenuItem {
   isVegetarian?: boolean;
   isVegan?: boolean;
   isGlutenFree?: boolean;
+  isNespresso?: boolean;
   ingredients?: string[];
 }
 
@@ -101,11 +102,42 @@ const MenuCardComponent: React.FC<MenuCardProps> = ({ item }) => {
         style={{ width: '100%', height: '100%' }}
         aria-label={`${item.name} detaylarını görüntüle`}
       >
-        {/* Görsel Alanı - Geçici Placeholder */}
-        <div className="aspect-square w-full relative overflow-hidden bg-gray-200 flex items-center justify-center border-b border-gray-300">
-          {/* Removed image rendering logic and loading state */}
-          {/* Added placeholder text */}
-          <span className="text-gray-500 text-sm font-medium">FOTOĞRAF ALANI</span>
+        {/* Görsel Alanı */}
+        <div className="aspect-square w-full relative overflow-hidden bg-gray-200 border-b border-gray-300">
+          {/* Ürün görselini göster */}
+          {item.image ? (
+            <Image 
+              src={item.image}
+              alt={item.name}
+              fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" // Farklı ekran boyutları için optimize et
+              className={`object-cover transition-opacity duration-300 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              onLoad={() => setIsImageLoaded(true)}
+              priority={false} // İlk yüklenen görseller dışındakiler için false olabilir
+            />
+          ) : (
+            // Görsel yoksa placeholder
+            <div className="w-full h-full flex items-center justify-center">
+                <span className="text-gray-400 text-xs font-medium">Görsel Yok</span>
+            </div>
+          )}
+          {/* Görsel yüklenene kadar gösterilecek iskelet */}
+          {!isImageLoaded && item.image && (
+            <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+          )}
+          
+          {/* Nespresso İkonu (Koşullu) */}
+          {item.isNespresso && (
+            <div className="absolute bottom-2 right-2 z-10">
+              <Image 
+                src="/images/nespresso-icon.png" 
+                alt="Nespresso Ürünü"
+                width={24}
+                height={24}
+                className="w-6 h-6 object-contain"
+              />
+            </div>
+          )}
         </div>
 
         {/* İçerik Alanı */}
@@ -116,8 +148,8 @@ const MenuCardComponent: React.FC<MenuCardProps> = ({ item }) => {
               <h3 className="font-semibold text-gray-800 font-sans text-[15px] sm:text-[17px] leading-tight line-clamp-2 flex-1 group-hover/card:text-[#6b563f] transition-colors duration-200">
                 {item.name}
               </h3>
-              <span className="text-base sm:text-lg font-bold text-[#6b563f] whitespace-nowrap font-sans pt-0.5">
-                {item.price}<span className="text-xs font-medium"> ₺</span>
+              <span className="text-lg sm:text-xl font-bold text-[#6b563f] whitespace-nowrap font-sans pt-0.5">
+                {item.price}<span className="text-sm font-semibold"> ₺</span>
               </span>
             </div>
             {/* Açıklama */}
@@ -128,11 +160,16 @@ const MenuCardComponent: React.FC<MenuCardProps> = ({ item }) => {
             )}
           </div>
           {/* Etiketler */}
-          <div className="flex flex-wrap gap-1.5 mt-auto pt-2 border-t border-gray-100">
-            {(['vegetarian', 'vegan', 'glutenFree'] as const).map((tagType) => {
+          <div className="flex flex-wrap items-center gap-1.5 mt-auto pt-2 border-t border-gray-100 min-h-[26px]">
+            {(() => {
+              const dietaryTags = (['vegetarian', 'vegan', 'glutenFree'] as const).filter(tagType => {
               const key = `is${tagType.charAt(0).toUpperCase() + tagType.slice(1)}` as keyof MenuItem;
-              if (item[key]) {
-                const style = tagStyles[tagType];
+                return !!item[key];
+              });
+
+              if (dietaryTags.length > 0) {
+                return dietaryTags.map(tagType => {
+                  const style = tagStyles[tagType as keyof typeof tagStyles];
                 const Icon = style.icon;
                 return (
                   <span 
@@ -144,9 +181,19 @@ const MenuCardComponent: React.FC<MenuCardProps> = ({ item }) => {
                     {style.text}
                   </span>
                 );
+                });
+              } else {
+                // Hiç diyet etiketi yoksa, üç nokta motifi göster
+                // Ana div'e justify-center ekleyelim (yukarıdaki className'e eklenecek)
+                return (
+                  <div className="w-full flex justify-center items-center">
+                    <span className="text-gray-400 text-xs tracking-widest">
+                      ● ● ●
+                    </span>
+                  </div>
+                );
               }
-              return null;
-            })}
+            })()}
           </div>
         </div>
       </motion.div>

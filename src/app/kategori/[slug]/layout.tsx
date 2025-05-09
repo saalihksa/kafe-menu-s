@@ -11,22 +11,22 @@ export async function generateMetadata({
   
   if (!category) {
     return {
-      title: "Kategori Bulunamadı - Cappadocia Coffee & Bakery",
+      title: "Kategori Bulunamadı - SandWita Sandwich & More",
       description: "Aradığınız kategori bulunamadı. Lütfen ana menüye giderek diğer kategorileri inceleyiniz.",
     };
   }
   
   return {
-    title: `${category.title} - Cappadocia Coffee & Bakery`,
-    description: category.description || `${category.title} kategorisindeki ürünlerimizi keşfedin. Cappadocia Coffee & Bakery'nin lezzetli ${category.title.toLowerCase()} seçenekleri sizi bekliyor.`,
-    keywords: `${category.title.toLowerCase()}, cappadocia ${category.title.toLowerCase()}, ${category.title.toLowerCase()} menu`,
+    title: `${category.title} - SandWita Sandwich & More`,
+    description: category.description || `${category.title} kategorisindeki ürünlerimizi keşfedin. SandWita Sandwich & More'un lezzetli ${category.title.toLowerCase()} seçenekleri sizi bekliyor.`,
+    keywords: `${category.title.toLowerCase()}, sandwita ${category.title.toLowerCase()}, ${category.title.toLowerCase()} menu`,
     alternates: {
-      canonical: `https://www.cappadociacoffee.com/kategori/${params.slug}`,
+      canonical: `https://www.sandwita.com/kategori/${params.slug}`,
     },
     openGraph: {
-      title: `${category.title} - Cappadocia Coffee & Bakery`,
+      title: `${category.title} - SandWita Sandwich & More`,
       description: category.description || `${category.title} kategorisindeki ürünlerimizi keşfedin. Özel seçeneklerimizi inceleyin.`,
-      url: `https://www.cappadociacoffee.com/kategori/${params.slug}`,
+      url: `https://www.sandwita.com/kategori/${params.slug}`,
       images: category.image ? [
         {
           url: category.image,

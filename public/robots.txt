@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
  
 # Sitenin tamamına izin ver
-Sitemap: https://www.cappadociacoffee.com/sitemap.xml 
+# Sitemap: https://www.cappadociacoffee.com/sitemap.xml # Bu satırı yorum haline getirdim 

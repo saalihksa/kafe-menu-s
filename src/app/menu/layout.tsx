@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Menü - Cappadocia Coffee & Bakery",
-  description: "Cappadocia Coffee & Bakery'nin özel kahve çeşitleri, tatlılar ve bakery ürünlerinin yer aldığı menümüzü inceleyin.",
-  keywords: "cappadocia menu, kafe menü, kahve menu, bakery menu, tatlı menü",
+  title: "Menü - SandWita Sandwich & More",
+  description: "SandWita Sandwich & More'un özel sandviç çeşitleri, tatlılar ve bakery ürünlerinin yer aldığı menümüzü inceleyin.",
+  keywords: "sandwita menu, kafe menü, sandviç menu, bakery menu, tatlı menü",
   alternates: {
-    canonical: "https://www.cappadociacoffee.com/menu",
+    canonical: "https://www.sandwita.com/menu",
   },
   openGraph: {
-    title: "Menü - Cappadocia Coffee & Bakery",
-    description: "Özel kahve çeşitlerimiz, tatlılarımız ve bakery ürünlerimizin yer aldığı menümüzü inceleyin.",
-    url: "https://www.cappadociacoffee.com/menu",
+    title: "Menü - SandWita Sandwich & More",
+    description: "Özel sandviç çeşitlerimiz, tatlılarımız ve bakery ürünlerimizin yer aldığı menümüzü inceleyin.",
+    url: "https://www.sandwita.com/menu",
   }
 };
 

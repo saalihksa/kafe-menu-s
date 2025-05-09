@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150">
-  <!-- Balon Sepeti -->
-  <rect x="40" y="125" width="20" height="10" rx="2" fill="#8a6e57" />
-  <rect x="42" y="123" width="16" height="2" rx="1" fill="#6b563f" />
-  
-  <!-- Balon İpleri -->
-  <path d="M43,125 C38,115 35,105 30,100" stroke="#8a6e57" stroke-width="1" fill="none" />
-  <path d="M50,125 C50,115 50,105 50,100" stroke="#8a6e57" stroke-width="1" fill="none" />
-  <path d="M57,125 C62,115 65,105 70,100" stroke="#8a6e57" stroke-width="1" fill="none" />
-  
-  <!-- Balon Gölgesi -->
-  <ellipse cx="50" cy="120" rx="30" ry="5" fill="rgba(0,0,0,0.05)" />
-  
-  <!-- Balon Ana Gövdesi - Daire Şeklinde -->
-  <circle cx="50" cy="60" r="40" fill="#e9c46a" />
-  
-  <!-- Alt Kısım Bağlantısı -->
-  <path d="M30,95 C35,105 65,105 70,95" fill="#e9c46a" />
-  
-  <!-- Detaylar ve Parlaklık -->
-  <circle cx="40" cy="45" r="10" fill="#f0d68a" opacity="0.4" />
-  
-  <!-- Üst Nokta -->
-  <circle cx="50" cy="20" r="3" fill="#d4ac3d" />
+  <!-- Sandwich Type G - Default/Colorful -->
+  <!-- Top Bread -->
+  <rect x="15" y="45" width="70" height="15" rx="5" ry="5" fill="#D2B48C" />
+  <!-- Lettuce -->
+  <rect x="20" y="60" width="60" height="8" rx="3" ry="3" fill="#90EE90" />
+  <!-- Tomato Slices -->
+  <circle cx="35" cy="71" r="7" fill="#FF0000" />
+  <circle cx="50" cy="71" r="7" fill="#FF0000" />
+  <circle cx="65" cy="71" r="7" fill="#FF0000" />
+  <!-- Cheese -->
+  <rect x="20" y="79" width="60" height="8" rx="3" ry="3" fill="#FFFF00" />
+  <!-- Meat -->
+  <rect x="18" y="87" width="64" height="12" rx="4" ry="4" fill="#A0522D" />
+  <!-- Bottom Bread -->
+  <rect x="15" y="99" width="70" height="15" rx="5" ry="5" fill="#D2B48C" />
 </svg> 

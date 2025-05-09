@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Bakım Modu | Cappadocia Cafe & Restaurant',
+  title: 'Bakım Modu | SandWita Sandwich & More',
   description: 'Sitemiz şu anda bakım modundadır. Kısa süre içinde tekrar hizmetinizdeyiz.',
 };
 

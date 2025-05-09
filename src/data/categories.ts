@@ -5,80 +5,63 @@ export type Category = {
   image: string;
   description?: string;
   group: 'icecekler' | 'tatlilar' | 'bakery';
+  icon?: string;
 };
 
 export const categories: Category[] = [
   {
-    id: 'aromali-sicak-kahveler',
-    title: 'Aromalı Sıcak Kahveler',
-    slug: 'aromali-sicak-kahveler',
-    image: '/images/categories/sicak-icecekler.jpg',
-    description: 'Çeşitli lezzetlerle hazırlanan özel sıcak kahvelerimiz',
-    group: 'icecekler'
+    id: 'sandvicler',
+    title: 'Sandviçler',
+    slug: 'sandvicler',
+    image: '/images/categories/sandvicler.jpg',
+    description: 'Lezzetli ve doyurucu sandviç çeşitlerimiz.',
+    group: 'bakery',
+    icon: '🥪'
   },
   {
-    id: 'aromali-soguk-kahveler',
-    title: 'Aromalı Soğuk Kahveler',
-    slug: 'aromali-soguk-kahveler',
-    image: '/images/categories/soguk-icecekler.jpg',
-    description: 'Özel aromalarla zenginleştirilmiş soğuk kahvelerimiz',
-    group: 'icecekler'
+    id: 'tatlilar',
+    title: 'Tatlılar',
+    slug: 'tatlilar',
+    image: '/images/categories/tatlilar.jpg',
+    description: 'Birbirinden lezzetli tatlı çeşitlerimiz.',
+    group: 'tatlilar',
+    icon: '🍰'
   },
   {
-    id: 'demleme-kahveler',
-    title: 'Demleme Kahveler',
-    slug: 'demleme-kahveler',
-    image: '/images/categories/geleneksel-kahveler.jpg',
-    description: 'Özel demleme yöntemleriyle hazırlanan kahvelerimiz',
-    group: 'icecekler'
-  },
-  {
-    id: 'diger-icecekler',
-    title: 'Kahve Konseptleri',
-    slug: 'diger-icecekler',
-    image: '/images/categories/meyve-sulari.jpg',
-    description: 'Farklı kahve deneyimleri sunan özel konseptlerimiz',
-    group: 'icecekler'
-  },
-  {
-    id: 'sicak-icecekler',
-    title: 'Sıcak İçecekler',
-    slug: 'sicak-icecekler',
-    image: '/images/categories/caylar.jpg',
-    description: 'Sıcak çikolata gibi özel içeceklerimiz',
-    group: 'icecekler'
+    id: 'kahveler',
+    title: 'Kahveler',
+    slug: 'kahveler',
+    image: '/images/categories/dunya-kahveleri.jpg',
+    description: 'Özenle hazırlanmış sıcak kahve çeşitlerimiz.',
+    group: 'icecekler',
+    icon: '☕️'
   },
   {
     id: 'soguk-kahveler',
     title: 'Soğuk Kahveler',
     slug: 'soguk-kahveler',
     image: '/images/categories/soguk-kahveler.jpg',
-    description: 'Serinleten lezzetli soğuk kahve çeşitlerimiz',
-    group: 'icecekler'
+    description: 'Serinletici soğuk kahve çeşitlerimiz.',
+    group: 'icecekler',
+    icon: '🧊'
   },
   {
-    id: 'espresso-bazli-kahveler',
-    title: 'Espresso Bazlı Kahveler',
-    slug: 'espresso-bazli-kahveler',
-    image: '/images/categories/dunya-kahveleri.jpg',
-    description: 'Kaliteli espresso bazlı kahve çeşitlerimiz',
-    group: 'icecekler'
+    id: 'caylar',
+    title: 'Çaylar',
+    slug: 'caylar',
+    image: '/images/categories/caylar.jpg',
+    description: 'Demleme ve bitki çayı çeşitlerimiz.',
+    group: 'icecekler',
+    icon: '🫖'
   },
   {
-    id: 'patisserie',
-    title: 'Patisserie Menüsü',
-    slug: 'patisserie',
-    image: '/images/categories/tatlilar.jpg',
-    description: 'Özel tariflerle hazırlanan tatlı ve pasta çeşitlerimiz',
-    group: 'tatlilar'
-  },
-  {
-    id: 'bakery',
-    title: 'Bakery Menüsü',
-    slug: 'bakery',
-    image: '/images/categories/tostlar.jpg',
-    description: 'Taze pişirilen ekmek, kek ve kurabiye çeşitlerimiz',
-    group: 'bakery'
+    id: 'soft-icecekler',
+    title: 'Soft İçecekler',
+    slug: 'soft-icecekler',
+    image: '/images/categories/soft-icecekler.jpg',
+    description: 'Gazlı ve gazsız soğuk içecek çeşitlerimiz.',
+    group: 'icecekler',
+    icon: '🥤'
   }
 ];
 
